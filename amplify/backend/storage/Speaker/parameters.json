@@ -1,0 +1,5 @@
+{
+    "tableName": "Speaker",
+    "partitionKeyName": "speaker_id",
+    "partitionKeyType": "S"
+}
