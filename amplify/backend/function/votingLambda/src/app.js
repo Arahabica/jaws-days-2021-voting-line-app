@@ -55,7 +55,7 @@ const convertUrlType = (param, type) => {
 }
 
 app.get(path, function(req, res) {
-  res.json("body:hello3!");
+  res.json({liffId : process.env.LIFF_ID});
   
 });
 

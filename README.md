@@ -1,5 +1,5 @@
 ## 構成
-Amplify + Next.js
+Amplify + React
 
 
 ## 開発の流れ
@@ -7,6 +7,12 @@ Amplify + Next.js
 作業は各自でAmplifyとgithubの作業ブランチを作成し、開発を行ます。
 
 「Getting Started」から始めてください。
+
+動作確認は自身の作業ブランチにpushを行い、Amplify Front（jawsdays2021）にて[ブランチの接続]を行います。
+
+自身のブランチを追加し、ビルドを行ます。
+
+発行されたURLでLIFFの確認を行ます。
 
 作業が終わったら、mainブランチにプルリクエストを送ってください。
 
@@ -19,12 +25,17 @@ git clone https://github.com/mochan-tk/jaws-days-2021-voting-app.git
 cd jaws-days-2021-voting-app
 
 # 既にあるmainブランチ(amplifyではdevの環境が対応する)の設定を元に環境を構築する
+# [accessKeyId]と[secretAccessKey]はcsvで送るaws_access_key_idとaws_secret_access_keyを入力
 amplify init
 ? Do you want to use an existing environment? (Y/n) y
 ? Choose the environment you would like to use: (Use arrow keys) dev
 ? Choose your default editor: Visual Studio Code
 ? Select the authentication method you want to use: (Use arrow keys) AWS profile
-? Please choose the profile you want to use (Use arrow keys) default
+? AWS access credentials can not be found.
+? Setup new user (Y/n) n
+? accessKeyId:  [hidden] 
+? secretAccessKey:  [hidden]   
+? region:  ap-northeast-1
 
 # 自分の開発環境を構築し切り替える（自分の名前で環境を作る）
 amplify env add
@@ -49,8 +60,9 @@ amplify push
 # 先ほどデプロイしたAmplifyの開発環境とローカル環境の同期をとる
 amplify pull
 
+# 事前にLIFFを作成します。
 # Liff Id を設定する
-vim .env.local
+lambda の環境変数に設定する（キー：LIFF_ID）
 
 # 必要なモジュールのインストール
 npm install
@@ -61,10 +73,6 @@ npm run dev
 # or
 yarn dev
 
-# 事前にLIFFを作成します。
-# 「~/.aws/credentials」のcsvで送るaws_access_key_idとaws_secret_access_keyを記述し、それ以外を消します。
-# 下記コマンドを実行し、出力される「appUrl」をLiffのエンドポイントURLに設定する
-npx serverless
 ```
 
 ## その他
