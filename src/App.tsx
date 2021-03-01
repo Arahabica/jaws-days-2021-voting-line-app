@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import API from '@aws-amplify/api';
 import Amplify from "aws-amplify";
 import logo from './logo.svg';
+import liff from '@line/liff';
 import './App.css';
 import awsmobile from "./aws-exports";
 
@@ -9,28 +10,45 @@ import awsmobile from "./aws-exports";
 Amplify.configure(awsmobile)
 
 function App() {
+  const [userName, setUserName] = useState<string>("");
   
   useEffect(() => {
-    console.log("start");
     // オプション
     const myInit = {
         headers: {},
         response: true
     };
     
-    // get LiffId
-    API.get("votingApiGateway", "/items", myInit).then(response => {
-        console.log(response.data.liffId);
-        alert(response.data.liffId)
-    }).catch(error => {
-        console.log(error)
-        alert(error)
-    });
+    const fn = async () => {
+      // get LiffId
+      await API.get("votingApiGateway", "/items", myInit)
+      .then(response => {
+        liff.init({liffId: response.data.liffId})
+        if (!liff.isLoggedIn()) {
+          liff.login()
+        }
+        // プロフィール取得
+        liff.getProfile()
+        .then(profile => {
+          setUserName(profile.displayName)
+        })
+        .catch((err) => {
+          console.log('error', err)
+        })
+      })
+      .catch(error => {
+          console.log(error)
+          alert(error)
+      });
+      
+    }
+    fn()
   }, []);
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <p>{userName}</p>
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
