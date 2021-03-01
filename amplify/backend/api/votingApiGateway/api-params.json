@@ -1,12 +1,12 @@
 {
     "paths": [
         {
-            "name": "/items",
+            "name": "/liffid",
             "lambdaFunction": "votingLambda",
             "privacy": {
                 "open": true
             },
-            "policyResourceName": "/items"
+            "policyResourceName": "/liffid"
         }
     ],
     "resourceName": "votingApiGateway",
@@ -31,5 +31,6 @@
                 "Arn"
             ]
         }
-    ]
+    ],
+    "uuid": "fa87c403"
 }

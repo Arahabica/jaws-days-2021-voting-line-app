@@ -28,7 +28,7 @@ const partitionKeyType = "S";
 const sortKeyName = "";
 const sortKeyType = "";
 const hasSortKey = sortKeyName !== "";
-const path = "/items";
+const path = "/liffid";
 const UNAUTH = 'UNAUTH';
 const hashKeyPath = '/:' + partitionKeyName;
 const sortKeyPath = hasSortKey ? '/:' + sortKeyName : '';

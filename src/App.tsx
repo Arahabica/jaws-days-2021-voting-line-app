@@ -21,7 +21,7 @@ function App() {
     
     const fn = async () => {
       // get LiffId
-      await API.get("votingApiGateway", "/items", myInit)
+      await API.get("votingApiGateway", "/liffid", myInit)
       .then(response => {
         liff.init({liffId: response.data.liffId})
         if (!liff.isLoggedIn()) {
