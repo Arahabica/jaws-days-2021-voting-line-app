@@ -90,7 +90,7 @@ function App() {
       <header className="App-header">
         <img src={icon} className="App-icon" alt="icon" />
         <p>{eventName} {userName}</p>
-        <Select options={sel} />
+        
       </header>
     </div>
   );
