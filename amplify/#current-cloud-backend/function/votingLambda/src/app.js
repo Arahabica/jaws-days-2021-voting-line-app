@@ -44,6 +44,36 @@ app.post("/event", function (req, res) {
         }
     });
 });
+app.post("/speakerlist", function (req, res) {
+    var tableName = "SpeakerList";
+    if (process.env.ENV && process.env.ENV !== "NONE") {
+        tableName = tableName + '-' + process.env.ENV;
+    }
+    console.log("tableName: " + tableName);
+    var params = {
+        TableName: tableName,
+        KeyConditionExpression: "event_id = :event_id",
+        ExpressionAttributeValues: {
+            ":event_id": req.body["event_id"]
+        }
+        //ExpressionAttributeNames:{'#e': 'event_id'},
+        //ExpressionAttributeValues:{':val': req.body["event_id"]},
+        //KeyConditionExpression: '#e <= :val'//検索対象が満たすべき条件を指定
+    };
+    var queryParams = {
+        TableName: tableName,
+        Key: { "event_id": req.body["event_id"] }
+    };
+    dynamodb.query(params, function (err, data) {
+        if (err) {
+            res.statusCode = 500;
+            res.json({ error: 'Could not load items: ' + err });
+        }
+        else {
+            res.json(data.Items);
+        }
+    });
+});
 app.get("/speakerlist", function (req, res) {
     var tableName = "SpeakerList";
     if (process.env.ENV && process.env.ENV !== "NONE") {

@@ -31,7 +31,7 @@
         "RootUrl": "https://co1uep28ze.execute-api.ap-northeast-1.amazonaws.com/dev",
         "ApiId": "co1uep28ze"
       },
-      "lastPushTimeStamp": "2021-03-02T22:13:17.082Z",
+      "lastPushTimeStamp": "2021-03-02T23:04:21.435Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-jawsdays2021-dev-73847-deployment/amplify-cfn-templates/api/votingApiGateway-cloudformation-template.json",
         "logicalId": "apivotingApiGateway"
@@ -50,7 +50,7 @@
         "PartitionKeyType": "S",
         "Name": "Speaker-dev"
       },
-      "lastPushTimeStamp": "2021-03-02T22:13:17.089Z",
+      "lastPushTimeStamp": "2021-03-02T23:04:21.441Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-jawsdays2021-dev-73847-deployment/amplify-cfn-templates/storage/Speaker-cloudformation-template.json",
         "logicalId": "storageSpeaker"
@@ -69,7 +69,7 @@
         "PartitionKeyType": "S",
         "Name": "SpeakerList-dev"
       },
-      "lastPushTimeStamp": "2021-03-02T22:13:17.095Z",
+      "lastPushTimeStamp": "2021-03-02T23:04:21.445Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-jawsdays2021-dev-73847-deployment/amplify-cfn-templates/storage/SpeakerList-cloudformation-template.json",
         "logicalId": "storageSpeakerList"
@@ -86,7 +86,7 @@
         "PartitionKeyType": "S",
         "Name": "Event-dev"
       },
-      "lastPushTimeStamp": "2021-03-02T22:13:17.099Z",
+      "lastPushTimeStamp": "2021-03-02T23:04:21.449Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-jawsdays2021-dev-73847-deployment/amplify-cfn-templates/storage/Event-cloudformation-template.json",
         "logicalId": "storageEvent"
@@ -103,7 +103,7 @@
         "PartitionKeyType": "N",
         "Name": "Evaluation-dev"
       },
-      "lastPushTimeStamp": "2021-03-02T22:13:17.105Z",
+      "lastPushTimeStamp": "2021-03-02T23:04:21.455Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-jawsdays2021-dev-73847-deployment/amplify-cfn-templates/storage/Evaluation-cloudformation-template.json",
         "logicalId": "storageEvaluation"
@@ -120,7 +120,7 @@
         "PartitionKeyType": "S",
         "Name": "User-dev"
       },
-      "lastPushTimeStamp": "2021-03-02T22:13:17.109Z",
+      "lastPushTimeStamp": "2021-03-02T23:04:21.461Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-jawsdays2021-dev-73847-deployment/amplify-cfn-templates/storage/User-cloudformation-template.json",
         "logicalId": "storageUser"
@@ -152,19 +152,19 @@
         "Name": "votingLambda-dev",
         "LambdaExecutionRole": "jawsdays2021LambdaRolee8758f90-dev"
       },
-      "lastPushTimeStamp": "2021-03-02T22:13:17.136Z",
+      "lastPushTimeStamp": "2021-03-02T23:04:21.476Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-jawsdays2021-dev-73847-deployment/amplify-cfn-templates/function/votingLambda-cloudformation-template.json",
         "logicalId": "functionvotingLambda"
       },
       "s3Bucket": {
         "deploymentBucketName": "amplify-jawsdays2021-dev-73847-deployment",
-        "s3Key": "amplify-builds/votingLambda-76332b724e796c4f6144-build.zip"
+        "s3Key": "amplify-builds/votingLambda-2b34524359592b776f6c-build.zip"
       },
-      "lastBuildTimeStamp": "2021-03-02T22:11:58.676Z",
-      "lastPackageTimeStamp": "2021-03-02T22:12:14.091Z",
-      "distZipFilename": "votingLambda-76332b724e796c4f6144-build.zip",
-      "lastPushDirHash": "UUhIVppatpioN3019Hje7eEv/AU="
+      "lastBuildTimeStamp": "2021-03-02T23:03:06.040Z",
+      "lastPackageTimeStamp": "2021-03-02T23:03:18.521Z",
+      "distZipFilename": "votingLambda-2b34524359592b776f6c-build.zip",
+      "lastPushDirHash": "bEzclQG/x/01OFfxSQpjjIZR4Rw="
     }
   }
 }
