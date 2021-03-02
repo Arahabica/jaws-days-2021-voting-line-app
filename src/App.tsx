@@ -12,6 +12,7 @@ Amplify.configure(awsmobile)
 function App() {
   const [userName, setUserName] = useState<string>("");
   const [item, setItem] = useState<string>("");
+  const [icon, setIcon] = useState<string>("");
   
   useEffect(() => {
     
@@ -21,6 +22,8 @@ function App() {
           headers: {},
           response: true
       };
+      var idToken = null
+      var accessToken = null
       // get LiffId
       await API.get("votingApiGateway", "/liffid", myInit)
       .then(response => {
@@ -28,10 +31,14 @@ function App() {
         if (!liff.isLoggedIn()) {
           liff.login()
         }
+        // getIDToken
+        idToken = liff.getIDToken()
+        accessToken = liff.getAccessToken()
         // プロフィール取得
         liff.getProfile()
         .then(profile => {
           setUserName(profile.displayName)
+          setIcon(profile.pictureUrl)
         })
         .catch((err) => {
           console.log('error', err)
@@ -51,6 +58,25 @@ function App() {
           console.log(error)
           alert(error)
       });
+      
+      // オプション
+      const option = {
+          headers: {},
+          response: true,
+          body: {
+            idToken : idToken,
+            accessToken : accessToken
+          }
+      };
+      
+      await API.post("votingApiGateway", "/hello", option)
+      .then(response => {
+        console.log("post ok")
+      })
+      .catch(error => {
+          console.log(error)
+          alert(error)
+      });
     }
     fn()
   }, []);
@@ -58,6 +84,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <img src={icon} className="App-logo" alt="iocn" />
         <p>{item} {userName}</p>
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
