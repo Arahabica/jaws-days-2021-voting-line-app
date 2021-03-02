@@ -11,6 +11,7 @@
     "@types/jest": "^26.0.20",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
+    "@types/react-select": "^4.0.13",
     "aws-amplify": "^3.3.21",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

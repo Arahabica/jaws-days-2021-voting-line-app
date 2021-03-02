@@ -28,7 +28,7 @@ app.post("/hello", function (req, res) {
     console.log(req.body);
     res.json({ item: "Hello！" });
 });
-app.get("/event", function (req, res) {
+app.post("/event", function (req, res) {
     var tableName = "Event";
     if (process.env.ENV && process.env.ENV !== "NONE") {
         tableName = tableName + '-' + process.env.ENV;

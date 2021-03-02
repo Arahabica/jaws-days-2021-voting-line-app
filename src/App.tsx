@@ -67,7 +67,7 @@ function App() {
       };
       // 
       var event_name = ""
-      await API.get("votingApiGateway", "/event", option)
+      await API.post("votingApiGateway", "/event", option)
       .then(response => {
         event_name = response.data
       })
