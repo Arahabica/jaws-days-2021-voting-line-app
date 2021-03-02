@@ -88,9 +88,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={icon} className="App-icon" alt="icon" />
-        <p>{eventName} {userName}</p>
-        
+        <img src={icon} className="App-icon" alt="icon" /><p>{userName}さん</p>
+        <p>投票システム</p>
+        <p>{eventName}</p>
+        <Select options={sel} />
       </header>
     </div>
   );

@@ -5,10 +5,6 @@ var bodyParser = require("body-parser");
 var AWS = require("aws-sdk");
 //var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
 var dynamodb = new AWS.DynamoDB.DocumentClient();
-var tableName = "User";
-if (process.env.ENV && process.env.ENV !== "NONE") {
-    tableName = tableName + '-' + process.env.ENV;
-}
 var app = express();
 app.use(bodyParser.json());
 // Enable CORS for all methods
@@ -63,7 +59,14 @@ app.get("/speakerlist", function (req, res) {
             res.json({ error: 'Could not load items: ' + err });
         }
         else {
-            res.json(data.Items);
+            var items = [];
+            var item = "";
+            data.Items.forEach(function (item, index) {
+                console.log(item.speaker_id);
+                //item = {value: item.speaker_id, label: item.speaker_name}
+                items.push({ value: item.speaker_id, label: item.speaker_name });
+            });
+            res.json(items);
         }
     });
 });
