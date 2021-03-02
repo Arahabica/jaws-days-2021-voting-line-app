@@ -42,15 +42,8 @@ function App() {
           alert(error)
       });
       
-      // オプション
-      const option = {
-          headers: {},
-          response: true,
-          body: {item : "hello"}
-      };
-      
-      // get LiffId
-      await API.get("votingApiGateway", "/hello", option)
+      // 
+      await API.get("votingApiGateway", "/hello", myInit)
       .then(response => {
         setItem(response.data.item)
       })

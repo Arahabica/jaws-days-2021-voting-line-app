@@ -8,6 +8,8 @@ Amplify + React
 
 「Getting Started」から始めてください。
 
+APIを追加する場合は「API Gateway の path追加」を参考にしてください。
+
 動作確認は自身の作業ブランチにpushを行い、Amplify Front（jawsdays2021）にて[ブランチの接続]を行います。
 
 自身のブランチとAmplifyのブランチ追加し、デプロイを行います。
@@ -75,14 +77,32 @@ yarn dev
 
 ```
 
+## API Gateway の path追加
+
+```bash
+amplify update api
+? Please select from one of the below mentioned services: REST
+? Please select the REST API you would want to update votingApiGateway
+? What would you like to do Add another path
+? Provide a path (e.g., /book/{isbn}): /xxxx
+? Choose a Lambda source Use a Lambda function already added in the current Amplify project
+? Choose the Lambda function to invoke by this path 
+? Restrict API access No
+? Do you want to add another path? No
+
+
+amplify push
+
+```
+
 ## その他
 手元の環境で上手くいかない場合はCloud9を使ってみてください。
 
 主要な変更するファイルは下記などです。
 
 - フロントエンド
-    - pages/index.tsx
-- バックエンド
+    - src/App.tsx
+- バックエンド(変更した際は「amplify push」してデプロイします。)
     - amplify/backend/function/votingLambda/src/app.js
 
 
