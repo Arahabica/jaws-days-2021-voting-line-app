@@ -59,8 +59,7 @@ amplify push
 amplify pull
 
 # 事前にLIFFを作成します。
-# Liff Id を設定する
-# 作業ブランチのlambda の環境変数に設定する（キー：LIFF_ID）
+# 作業ブランチのLambda Console画面に移動し、環境変数に「Liff Id」を設定する（キー：LIFF_ID）
 
 # 必要なモジュールのインストール
 npm install
@@ -104,13 +103,3 @@ amplify push
     - src/App.tsx
 - バックエンド(変更した際は「amplify push」してデプロイします。)
     - amplify/backend/function/votingLambda/src/app.js
-
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
