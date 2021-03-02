@@ -9,18 +9,11 @@ Amplify + React
 
 「Getting Started」から始めてください。
 
-APIを追加する場合は「API Gateway の path追加」を参考にしてください。
-
-動作確認は自身の作業ブランチにpushを行い、Amplify Console（jawsdays2021） の Frontend environmentsにて[ブランチの接続]を行います。
-
-自身のブランチとAmplifyのブランチを選択し、デプロイを行います。
-
-詳しくは[こちら](https://docs.google.com/presentation/d/1d3034Czy2rzWb_Q4KWs8T41BqG2l0ZkNblO6DbBrbMQ/edit?usp=sharing)
-
 発行されたAmplifyのURLでLIFFの確認を行ます。
 
 作業が終わったら、mainブランチにプルリクエストを送ってください。
 
+APIを追加する場合は「API Gateway の path追加」を参考にしてください。
 
 ## Getting Started
 
@@ -67,7 +60,7 @@ amplify pull
 
 # 事前にLIFFを作成します。
 # Liff Id を設定する
-lambda の環境変数に設定する（キー：LIFF_ID）
+# 作業ブランチのlambda の環境変数に設定する（キー：LIFF_ID）
 
 # 必要なモジュールのインストール
 npm install
@@ -77,6 +70,10 @@ npm install
 npm run dev
 # or
 yarn dev
+
+# 動作確認は自身の作業ブランチにpushを行い、Amplify Console（jawsdays2021） の Frontend environmentsにて[ブランチの接続]を行います。
+# 詳しくはこちら(https://docs.google.com/presentation/d/1d3034Czy2rzWb_Q4KWs8T41BqG2l0ZkNblO6DbBrbMQ/edit?usp=sharing)
+
 
 ```
 
