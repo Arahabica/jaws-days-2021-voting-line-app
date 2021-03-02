@@ -13,7 +13,7 @@ function App() {
   const [eventName, setEventName] = useState<string>("");
   const [icon, setIcon] = useState<string>("");
   const [spekaerList, setSpekaerList] = useState([]);
-  
+  //setSpekaerList([{"value":"1","label":"鈴木さん"},{"value":"2","label":"佐藤さん"}])
   useEffect(() => {
     
     const fn = async () => {
@@ -93,7 +93,8 @@ function App() {
         <p>投票システム</p>
         <p>{eventName}</p>
         <select>
-        { spekaerList.map( d => <option value={d.value}>{d.label}</option>)}
+        <option value="1">bbb</option>
+        <option value="2">aaa</option>
       </select>
       </header>
     </div>
