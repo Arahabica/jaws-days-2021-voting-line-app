@@ -40,22 +40,18 @@ app.get("/event", function(req, res) {
       tableName = tableName + '-' + process.env.ENV;
     }
 
-  var condition = {}
-  condition["event_id"] = {
-    ComparisonOperator: 'EQ'
-  }
-  
+  console.log("tableName: " + tableName)
   let queryParams = {
     TableName:  tableName,
-    KeyConditions: condition
+    Key: {"event_id" : req.body["event_id"]}
   }
 
-  dynamodb.query(queryParams, (err, data) => {
+  dynamodb.get(queryParams, (err, data) => {
     if (err) {
       res.statusCode = 500;
       res.json({error: 'Could not load items: ' + err});
     } else {
-      res.json(data.Items);
+      res.json(data.Item.event_name);
     }
   });
 });

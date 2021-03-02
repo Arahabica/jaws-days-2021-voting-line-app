@@ -37,17 +37,18 @@ app.get("/event", function (req, res) {
     condition["event_id"] = {
         ComparisonOperator: 'EQ'
     };
+    console.log("tableName: " + tableName);
     var queryParams = {
         TableName: tableName,
-        KeyConditions: condition
+        Key: { "event_id": "1" }
     };
-    dynamodb.query(queryParams, function (err, data) {
+    dynamodb.get(queryParams, function (err, data) {
         if (err) {
             res.statusCode = 500;
             res.json({ error: 'Could not load items: ' + err });
         }
         else {
-            res.json(data.Items);
+            res.json(data.Item.event_name);
         }
     });
 });

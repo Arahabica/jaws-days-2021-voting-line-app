@@ -58,11 +58,18 @@ function App() {
           alert(error)
       });
       
+      var option = {
+          headers: {},
+          response: true,
+          body: {
+            event_id : "1"
+          }
+      };
       // 
-      var options = null
+      var event_name = ""
       await API.get("votingApiGateway", "/event", myInit)
       .then(response => {
-        options = [response.data]
+        event_name = response.data
       })
       .catch(error => {
           console.log(error)
@@ -70,7 +77,7 @@ function App() {
       });
       
       // オプション
-      const option = {
+      option = {
           headers: {},
           response: true,
           body: {
@@ -94,7 +101,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={icon} className="App-icon" alt="icon" />
-        <p>{item} {userName}</p>
+        <p>{event_name} {userName}</p>
         <Select options={options} />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
