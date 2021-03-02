@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Select from 'react-select'
 import API from '@aws-amplify/api';
 import Amplify from "aws-amplify";
-import logo from './logo.svg';
 import liff from '@line/liff';
 import './App.css';
 import awsmobile from "./aws-exports";
@@ -12,8 +11,9 @@ Amplify.configure(awsmobile)
 
 function App() {
   const [userName, setUserName] = useState<string>("");
-  const [item, setItem] = useState<string>("");
+  const [eventName, setEventName] = useState<string>("");
   const [icon, setIcon] = useState<string>("");
+  const [sel, setSel] = useState<string>("");
   
   useEffect(() => {
     
@@ -66,19 +66,17 @@ function App() {
           }
       };
       // 
-      var event_name = ""
       await API.post("votingApiGateway", "/event", option)
       .then(response => {
-        event_name = response.data
+        setEventName(response.data)
       })
       .catch(error => {
           console.log(error)
           alert(error)
       });
-      var options = []
       await API.get("votingApiGateway", "/speakerlist", myInit)
       .then(response => {
-        options = response.data
+        setSel(response.data)
       })
       .catch(error => {
           console.log(error)
@@ -91,19 +89,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={icon} className="App-icon" alt="icon" />
-        <p>{event_name} {userName}</p>
-        <Select options={options} />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>{eventName} {userName}</p>
+        <Select options={sel} />
       </header>
     </div>
   );

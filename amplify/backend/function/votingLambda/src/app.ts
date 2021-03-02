@@ -5,11 +5,6 @@ import * as AWS from 'aws-sdk';
 
 const dynamodb = new AWS.DynamoDB.DocumentClient();
 
-let tableName = "User";
-if(process.env.ENV && process.env.ENV !== "NONE") {
-  tableName = tableName + '-' + process.env.ENV;
-}
-
 const app = express();
 app.use(bodyParser.json())
 
