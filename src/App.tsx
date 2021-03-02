@@ -34,11 +34,13 @@ function App() {
         // getIDToken
         idToken = liff.getIDToken()
         accessToken = liff.getAccessToken()
+        console.log("★idToken : " + idToken)
+        console.log("★accessToken : " + accessToken)
         // プロフィール取得
         liff.getProfile()
         .then(profile => {
           setUserName(profile.displayName)
-          setIcon(profile.pictureUrl)
+          //setIcon(profile.pictureUrl)
         })
         .catch((err) => {
           console.log('error', err)
