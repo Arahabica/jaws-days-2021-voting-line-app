@@ -15,6 +15,14 @@
                 "open": true
             },
             "policyResourceName": "/hello"
+        },
+        {
+            "name": "/event",
+            "lambdaFunction": "votingLambda",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/event"
         }
     ],
     "resourceName": "votingApiGateway",
@@ -40,5 +48,5 @@
             ]
         }
     ],
-    "uuid": "79fc8329"
+    "uuid": "007d380d"
 }

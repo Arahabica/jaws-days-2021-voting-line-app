@@ -1,8 +1,18 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
+import * as AWS from 'aws-sdk';
+//var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
+
+const dynamodb = new AWS.DynamoDB.DocumentClient();
+
+let tableName = "User";
+if(process.env.ENV && process.env.ENV !== "NONE") {
+  tableName = tableName + '-' + process.env.ENV;
+}
 
 const app = express();
 app.use(bodyParser.json())
+
 // Enable CORS for all methods
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*")
@@ -22,6 +32,26 @@ app.get("/hello", function(req, res) {
 app.post("/hello", function (req, res) {
   console.log(req.body)
   res.json({ item: "Hello！" });
+});
+
+app.get("/event", function(req, res) {
+    let tableName = "Event";
+    if(process.env.ENV && process.env.ENV !== "NONE") {
+      tableName = tableName + '-' + process.env.ENV;
+    }
+  let queryParams = {
+    TableName:  tableName,
+    //KeyConditions: condition
+  }
+
+  dynamodb.query(queryParams, (err, data) => {
+    if (err) {
+      res.statusCode = 500;
+      res.json({error: 'Could not load items: ' + err});
+    } else {
+      res.json(data.Items);
+    }
+  });
 });
 
 app.listen(3000, () => console.log('Server is running'));

@@ -36,7 +36,7 @@ function App() {
           } else {
             liff.getProfile().then(function(profile) {
               setUserName(profile.displayName);
-              //setIcon(profile.pictureUrl)
+              setIcon(profile.pictureUrl+"")
               console.log(profile.pictureUrl)
             }).catch(function(error) {
                 window.alert('Error getting profile: ' + error);
@@ -58,9 +58,9 @@ function App() {
       });
       
       // 
-      await API.get("votingApiGateway", "/hello", myInit)
+      await API.get("votingApiGateway", "/event", myInit)
       .then(response => {
-        setItem(response.data.item)
+        setItem(response.data)
       })
       .catch(error => {
           console.log(error)
@@ -92,6 +92,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <img src={icon} alt="icon" />
         <p>{item} {userName}</p>
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
