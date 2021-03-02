@@ -27,7 +27,24 @@ function App() {
       // get LiffId
       await API.get("votingApiGateway", "/liffid", myInit)
       .then(response => {
-        liff.init({liffId: response.data.liffId})
+        liff.init({
+          liffId: response.data.liffId
+        })
+        .then(() => {
+          if (!liff.isLoggedIn()) {
+              liff.login();
+          } else {
+            liff.getProfile().then(function(profile) {
+              setUserName(profile.displayName);
+          }).catch(function(error) {
+              window.alert('Error getting profile: ' + error);
+          });
+          }
+        })
+        .catch((err) => {
+          alert(err);
+        });
+        /*liff.init({liffId: response.data.liffId})
         if (!liff.isLoggedIn()) {
           liff.login()
         }
@@ -45,7 +62,7 @@ function App() {
         idToken = liff.getIDToken()
         accessToken = liff.getAccessToken()
         console.log("★idToken : " + idToken)
-        console.log("★accessToken : " + accessToken)
+        console.log("★accessToken : " + accessToken)*/
         
       })
       .catch(error => {

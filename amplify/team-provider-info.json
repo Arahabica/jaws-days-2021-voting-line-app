@@ -15,7 +15,7 @@
       "function": {
         "votingLambda": {
           "deploymentBucketName": "amplify-jawsdays2021-dev-73847-deployment",
-          "s3Key": "amplify-builds/votingLambda-6d4f2f4e496364686b5a-build.zip"
+          "s3Key": "amplify-builds/votingLambda-4b70374132334f446d44-build.zip"
         }
       }
     }
