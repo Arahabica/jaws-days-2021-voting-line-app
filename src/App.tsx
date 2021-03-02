@@ -67,7 +67,7 @@ function App() {
       };
       // 
       var event_name = ""
-      await API.get("votingApiGateway", "/event", myInit)
+      await API.get("votingApiGateway", "/event", option)
       .then(response => {
         event_name = response.data
       })
@@ -75,20 +75,10 @@ function App() {
           console.log(error)
           alert(error)
       });
-      
-      // オプション
-      option = {
-          headers: {},
-          response: true,
-          body: {
-            idToken : idToken,
-            accessToken : accessToken
-          }
-      };
-      
-      await API.post("votingApiGateway", "/hello", option)
+      var options = []
+      await API.get("votingApiGateway", "/speakerlist", myInit)
       .then(response => {
-        console.log("post ok")
+        options = response.data
       })
       .catch(error => {
           console.log(error)

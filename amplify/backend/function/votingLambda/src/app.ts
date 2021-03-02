@@ -41,6 +41,7 @@ app.get("/event", function(req, res) {
     }
 
   console.log("tableName: " + tableName)
+  
   let queryParams = {
     TableName:  tableName,
     Key: {"event_id" : req.body["event_id"]}
@@ -52,6 +53,28 @@ app.get("/event", function(req, res) {
       res.json({error: 'Could not load items: ' + err});
     } else {
       res.json(data.Item.event_name);
+    }
+  });
+});
+
+app.get("/speakerlist", function(req, res) {
+    let tableName = "SpeakerList";
+    if(process.env.ENV && process.env.ENV !== "NONE") {
+      tableName = tableName + '-' + process.env.ENV;
+    }
+
+  console.log("tableName: " + tableName)
+  
+  let queryParams = {
+    TableName:  tableName
+  }
+
+  dynamodb.scan(queryParams, (err, data) => {
+    if (err) {
+      res.statusCode = 500;
+      res.json({error: 'Could not load items: ' + err});
+    } else {
+      res.json(data.Items);
     }
   });
 });

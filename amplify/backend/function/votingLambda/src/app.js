@@ -33,14 +33,10 @@ app.get("/event", function (req, res) {
     if (process.env.ENV && process.env.ENV !== "NONE") {
         tableName = tableName + '-' + process.env.ENV;
     }
-    var condition = {};
-    condition["event_id"] = {
-        ComparisonOperator: 'EQ'
-    };
     console.log("tableName: " + tableName);
     var queryParams = {
         TableName: tableName,
-        Key: { "event_id": "1" }
+        Key: { "event_id": req.body["event_id"] }
     };
     dynamodb.get(queryParams, function (err, data) {
         if (err) {
@@ -49,6 +45,25 @@ app.get("/event", function (req, res) {
         }
         else {
             res.json(data.Item.event_name);
+        }
+    });
+});
+app.get("/speakerlist", function (req, res) {
+    var tableName = "SpeakerList";
+    if (process.env.ENV && process.env.ENV !== "NONE") {
+        tableName = tableName + '-' + process.env.ENV;
+    }
+    console.log("tableName: " + tableName);
+    var queryParams = {
+        TableName: tableName
+    };
+    dynamodb.scan(queryParams, function (err, data) {
+        if (err) {
+            res.statusCode = 500;
+            res.json({ error: 'Could not load items: ' + err });
+        }
+        else {
+            res.json(data.Items);
         }
     });
 });
