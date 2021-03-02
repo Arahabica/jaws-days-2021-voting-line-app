@@ -33,8 +33,13 @@ app.get("/event", function (req, res) {
     if (process.env.ENV && process.env.ENV !== "NONE") {
         tableName = tableName + '-' + process.env.ENV;
     }
+    var condition = {};
+    condition["event_id"] = {
+        ComparisonOperator: 'EQ'
+    };
     var queryParams = {
-        TableName: tableName
+        TableName: tableName,
+        KeyConditions: condition
     };
     dynamodb.query(queryParams, function (err, data) {
         if (err) {

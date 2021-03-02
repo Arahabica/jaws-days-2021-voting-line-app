@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Select from 'react-select'
 import API from '@aws-amplify/api';
 import Amplify from "aws-amplify";
 import logo from './logo.svg';
@@ -58,9 +59,10 @@ function App() {
       });
       
       // 
+      var options = null
       await API.get("votingApiGateway", "/event", myInit)
       .then(response => {
-        setItem(response.data)
+        options = [response.data]
       })
       .catch(error => {
           console.log(error)
@@ -91,9 +93,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <img src={icon} alt="icon" />
+        <img src={icon} className="App-icon" alt="icon" />
         <p>{item} {userName}</p>
+        <Select options={options} />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
