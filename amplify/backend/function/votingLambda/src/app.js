@@ -60,8 +60,7 @@ app.get("/liffid", function(req, res) {
 });
 
 app.get("/hello", function(req, res) {
-  res.json({item: req.body['item']});
-  
+  res.json({item : "Hello！"});
 });
 
 /********************************

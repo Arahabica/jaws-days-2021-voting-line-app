@@ -10,9 +10,11 @@ Amplify + React
 
 APIを追加する場合は「API Gateway の path追加」を参考にしてください。
 
-動作確認は自身の作業ブランチにpushを行い、Amplify Front（jawsdays2021）にて[ブランチの接続]を行います。
+動作確認は自身の作業ブランチにpushを行い、Amplify Console（jawsdays2021） の Frontend environmentsにて[ブランチの接続]を行います。
 
-自身のブランチとAmplifyのブランチ追加し、デプロイを行います。
+自身のブランチとAmplifyのブランチを選択し、デプロイを行います。
+
+詳しくは[こちら](https://docs.google.com/presentation/d/1d3034Czy2rzWb_Q4KWs8T41BqG2l0ZkNblO6DbBrbMQ/edit?usp=sharing)
 
 発行されたAmplifyのURLでLIFFの確認を行ます。
 
