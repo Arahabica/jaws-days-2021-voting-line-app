@@ -7,6 +7,14 @@
                 "open": true
             },
             "policyResourceName": "/liffid"
+        },
+        {
+            "name": "/hello",
+            "lambdaFunction": "votingLambda",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/hello"
         }
     ],
     "resourceName": "votingApiGateway",
@@ -32,5 +40,5 @@
             ]
         }
     ],
-    "uuid": "fa87c403"
+    "uuid": "79fc8329"
 }

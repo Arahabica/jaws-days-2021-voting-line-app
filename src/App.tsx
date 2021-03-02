@@ -11,15 +11,16 @@ Amplify.configure(awsmobile)
 
 function App() {
   const [userName, setUserName] = useState<string>("");
+  const [item, setItem] = useState<string>("");
   
   useEffect(() => {
-    // オプション
-    const myInit = {
-        headers: {},
-        response: true
-    };
     
     const fn = async () => {
+      // オプション
+      const myInit = {
+          headers: {},
+          response: true
+      };
       // get LiffId
       await API.get("votingApiGateway", "/liffid", myInit)
       .then(response => {
@@ -40,6 +41,23 @@ function App() {
           console.log(error)
           alert(error)
       });
+      
+      // オプション
+      const option = {
+          headers: {},
+          response: true,
+          body: {item : "hello"}
+      };
+      
+      // get LiffId
+      await API.get("votingApiGateway", "/hello", option)
+      .then(response => {
+        setItem(response.data.item)
+      })
+      .catch(error => {
+          console.log(error)
+          alert(error)
+      });
     }
     fn()
   }, []);
@@ -47,7 +65,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>{userName}</p>
+        <p>{item} {userName}</p>
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
