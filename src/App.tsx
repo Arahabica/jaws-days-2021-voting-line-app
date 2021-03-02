@@ -32,11 +32,6 @@ function App() {
         if (!liff.isLoggedIn()) {
           liff.login()
         }
-        // getIDToken
-        idToken = liff.getIDToken()
-        accessToken = liff.getAccessToken()
-        console.log("★idToken : " + idToken)
-        console.log("★accessToken : " + accessToken)
         // プロフィール取得
         liff.getProfile()
         .then(profile => {
@@ -46,6 +41,13 @@ function App() {
         .catch((err) => {
           console.log('error', err)
         })
+        // getIDToken
+        liff.init({liffId: response.data.liffId})
+        idToken = liff.getIDToken()
+        accessToken = liff.getAccessToken()
+        console.log("★idToken : " + idToken)
+        console.log("★accessToken : " + accessToken)
+        
       })
       .catch(error => {
           console.log(error)
