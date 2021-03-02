@@ -1,0 +1,166 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-jawsdays2021-dev-73847-authRole",
+      "UnauthRoleArn": "arn:aws:iam::382140846606:role/amplify-jawsdays2021-dev-73847-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::382140846606:role/amplify-jawsdays2021-dev-73847-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-jawsdays2021-dev-73847-deployment",
+      "UnauthRoleName": "amplify-jawsdays2021-dev-73847-unauthRole",
+      "StackName": "amplify-jawsdays2021-dev-73847",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:382140846606:stack/amplify-jawsdays2021-dev-73847/d679fa00-7417-11eb-8347-0afff3dcfee2",
+      "AmplifyAppId": "duaprcxr4wcxh"
+    }
+  },
+  "api": {
+    "votingApiGateway": {
+      "service": "API Gateway",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "votingLambda",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        }
+      ],
+      "output": {
+        "ApiName": "votingApiGateway",
+        "RootUrl": "https://co1uep28ze.execute-api.ap-northeast-1.amazonaws.com/dev",
+        "ApiId": "co1uep28ze"
+      },
+      "lastPushTimeStamp": "2021-03-02T16:34:05.333Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-jawsdays2021-dev-73847-deployment/amplify-cfn-templates/api/votingApiGateway-cloudformation-template.json",
+        "logicalId": "apivotingApiGateway"
+      }
+    }
+  },
+  "storage": {
+    "Speaker": {
+      "service": "DynamoDB",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "PartitionKeyName": "speaker_id",
+        "Region": "ap-northeast-1",
+        "Arn": "arn:aws:dynamodb:ap-northeast-1:382140846606:table/Speaker-dev",
+        "StreamArn": "arn:aws:dynamodb:ap-northeast-1:382140846606:table/Speaker-dev/stream/2021-02-21T13:50:25.755",
+        "PartitionKeyType": "S",
+        "Name": "Speaker-dev"
+      },
+      "lastPushTimeStamp": "2021-03-02T16:34:05.335Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-jawsdays2021-dev-73847-deployment/amplify-cfn-templates/storage/Speaker-cloudformation-template.json",
+        "logicalId": "storageSpeaker"
+      }
+    },
+    "SpeakerList": {
+      "service": "DynamoDB",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "PartitionKeyName": "event_id",
+        "SortKeyName": "sort",
+        "SortKeyType": "N",
+        "Region": "ap-northeast-1",
+        "Arn": "arn:aws:dynamodb:ap-northeast-1:382140846606:table/SpeakerList-dev",
+        "StreamArn": "arn:aws:dynamodb:ap-northeast-1:382140846606:table/SpeakerList-dev/stream/2021-02-21T14:30:45.861",
+        "PartitionKeyType": "S",
+        "Name": "SpeakerList-dev"
+      },
+      "lastPushTimeStamp": "2021-03-02T16:34:05.337Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-jawsdays2021-dev-73847-deployment/amplify-cfn-templates/storage/SpeakerList-cloudformation-template.json",
+        "logicalId": "storageSpeakerList"
+      }
+    },
+    "Event": {
+      "service": "DynamoDB",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "PartitionKeyName": "event_id",
+        "Region": "ap-northeast-1",
+        "Arn": "arn:aws:dynamodb:ap-northeast-1:382140846606:table/Event-dev",
+        "StreamArn": "arn:aws:dynamodb:ap-northeast-1:382140846606:table/Event-dev/stream/2021-02-21T14:30:45.820",
+        "PartitionKeyType": "S",
+        "Name": "Event-dev"
+      },
+      "lastPushTimeStamp": "2021-03-02T16:34:05.338Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-jawsdays2021-dev-73847-deployment/amplify-cfn-templates/storage/Event-cloudformation-template.json",
+        "logicalId": "storageEvent"
+      }
+    },
+    "Evaluation": {
+      "service": "DynamoDB",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "PartitionKeyName": "evaluation_value",
+        "Region": "ap-northeast-1",
+        "Arn": "arn:aws:dynamodb:ap-northeast-1:382140846606:table/Evaluation-dev",
+        "StreamArn": "arn:aws:dynamodb:ap-northeast-1:382140846606:table/Evaluation-dev/stream/2021-02-21T14:30:46.096",
+        "PartitionKeyType": "N",
+        "Name": "Evaluation-dev"
+      },
+      "lastPushTimeStamp": "2021-03-02T16:34:05.339Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-jawsdays2021-dev-73847-deployment/amplify-cfn-templates/storage/Evaluation-cloudformation-template.json",
+        "logicalId": "storageEvaluation"
+      }
+    },
+    "User": {
+      "service": "DynamoDB",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "PartitionKeyName": "user_id",
+        "Region": "ap-northeast-1",
+        "Arn": "arn:aws:dynamodb:ap-northeast-1:382140846606:table/User-dev",
+        "StreamArn": "arn:aws:dynamodb:ap-northeast-1:382140846606:table/User-dev/stream/2021-02-21T14:30:45.686",
+        "PartitionKeyType": "S",
+        "Name": "User-dev"
+      },
+      "lastPushTimeStamp": "2021-03-02T16:34:05.341Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-jawsdays2021-dev-73847-deployment/amplify-cfn-templates/storage/User-cloudformation-template.json",
+        "logicalId": "storageUser"
+      }
+    }
+  },
+  "function": {
+    "votingLambda": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "storage",
+          "resourceName": "User",
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "attributeEnvMap": {
+            "Name": "TABLE_NAME",
+            "Arn": "TABLE_ARN"
+          }
+        }
+      ],
+      "output": {
+        "Region": "ap-northeast-1",
+        "Arn": "arn:aws:lambda:ap-northeast-1:382140846606:function:votingLambda-dev",
+        "Name": "votingLambda-dev",
+        "LambdaExecutionRole": "jawsdays2021LambdaRolee8758f90-dev"
+      },
+      "lastPushTimeStamp": "2021-03-02T16:34:05.342Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-jawsdays2021-dev-73847-deployment/amplify-cfn-templates/function/votingLambda-cloudformation-template.json",
+        "logicalId": "functionvotingLambda"
+      },
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-jawsdays2021-dev-73847-deployment",
+        "s3Key": "amplify-builds/votingLambda-5a2f376f507175635031-build.zip"
+      }
+    }
+  }
+}
