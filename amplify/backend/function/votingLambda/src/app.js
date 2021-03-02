@@ -63,6 +63,12 @@ app.get("/hello", function(req, res) {
   res.json({item : "Hello！"});
 });
 
+app.post("/hello", function (req, res) {
+  console.log("★idToken : " + req.body['idToken'])
+  console.log("★accessToken : " + req.body['accessToken'])
+  res.json({ item: "Hello！" });
+});
+
 /********************************
  * HTTP Get method for list objects *
  ********************************/
@@ -172,7 +178,7 @@ app.put(path, function(req, res) {
 /************************************
 * HTTP post method for insert object *
 *************************************/
-
+/*
 app.post(path, function(req, res) {
 
   if (userIdPresent) {
@@ -192,7 +198,7 @@ app.post(path, function(req, res) {
     }
   });
 });
-
+*/
 /**************************************
 * HTTP remove method to delete object *
 ***************************************/
