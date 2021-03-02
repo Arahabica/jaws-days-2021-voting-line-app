@@ -102,4 +102,4 @@ amplify push
 - フロントエンド
     - src/App.tsx
 - バックエンド(変更した際は「amplify push」してデプロイします。)
-    - amplify/backend/function/votingLambda/src/app.js
+    - amplify/backend/function/votingLambda/src/app.ts

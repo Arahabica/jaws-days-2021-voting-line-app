@@ -36,33 +36,19 @@ function App() {
           } else {
             liff.getProfile().then(function(profile) {
               setUserName(profile.displayName);
-          }).catch(function(error) {
-              window.alert('Error getting profile: ' + error);
-          });
+              setIcon(profile.pictureUrl)
+            }).catch(function(error) {
+                window.alert('Error getting profile: ' + error);
+            });
+            idToken = liff.getIDToken()
+            accessToken = liff.getAccessToken()
+            console.log("★idToken : " + idToken)
+            console.log("★accessToken : " + accessToken)
           }
         })
         .catch((err) => {
           alert(err);
         });
-        /*liff.init({liffId: response.data.liffId})
-        if (!liff.isLoggedIn()) {
-          liff.login()
-        }
-        // プロフィール取得
-        liff.getProfile()
-        .then(profile => {
-          setUserName(profile.displayName)
-          //setIcon(profile.pictureUrl)
-        })
-        .catch((err) => {
-          console.log('error', err)
-        })
-        // getIDToken
-        liff.init({liffId: response.data.liffId})
-        idToken = liff.getIDToken()
-        accessToken = liff.getAccessToken()
-        console.log("★idToken : " + idToken)
-        console.log("★accessToken : " + accessToken)*/
         
       })
       .catch(error => {
@@ -105,6 +91,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <img src={icon} alt="icon" />
         <p>{item} {userName}</p>
         <p>
           Edit <code>src/App.tsx</code> and save to reload.

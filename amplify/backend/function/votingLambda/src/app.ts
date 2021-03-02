@@ -1,6 +1,14 @@
 import * as express from 'express';
+import * as bodyParser from 'body-parser';
 
 const app = express();
+app.use(bodyParser.json())
+// Enable CORS for all methods
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Headers", "*")
+  next()
+});
 
 app.get("/liffid", function(req, res) {
     console.log("tomomi")
