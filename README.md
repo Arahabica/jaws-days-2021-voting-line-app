@@ -25,9 +25,9 @@ APIを追加する場合は「API Gateway の path追加」を参考にしてく
 ## Getting Started
 
 ```bash
-git clone https://github.com/mochan-tk/jaws-days-2021-voting-app.git
+git clone https://github.com/mochan-tk/jaws-days-2021-voting-line-app.git
 
-cd jaws-days-2021-voting-app
+cd jaws-days-2021-voting-line-app
 
 # 既にあるmainブランチ(amplifyではdevの環境が対応する)の設定を元に環境を構築する
 # [accessKeyId]と[secretAccessKey]はcsvで送るaws_access_key_idとaws_secret_access_keyを入力
