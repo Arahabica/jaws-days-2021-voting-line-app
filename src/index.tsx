@@ -5,13 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <Router>
-      <Route render={ (props) => 
-        <App 
-            qs={queryString.parse(props.location.search)}
-        />
-      }/>
-    </Router>, 
   <React.StrictMode>
     <App />
   </React.StrictMode>,
