@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Select from 'react-select'
 import API from '@aws-amplify/api';
 import Amplify from "aws-amplify";
 import liff from '@line/liff';
@@ -13,7 +12,7 @@ function App() {
   const [userName, setUserName] = useState<string>("");
   const [eventName, setEventName] = useState<string>("");
   const [icon, setIcon] = useState<string>("");
-  const [sel, setSel] = useState<string>("");
+  const [spekaerList, setSpekaerList] = useState([]);
   
   useEffect(() => {
     
@@ -74,9 +73,11 @@ function App() {
           console.log(error)
           alert(error)
       });
+      
       await API.get("votingApiGateway", "/speakerlist", myInit)
       .then(response => {
-        setSel(response.data)
+        setSpekaerList(response.data)
+        
       })
       .catch(error => {
           console.log(error)
@@ -91,7 +92,9 @@ function App() {
         <img src={icon} className="App-icon" alt="icon" /><p>{userName}さん</p>
         <p>投票システム</p>
         <p>{eventName}</p>
-        <Select options={sel} />
+        <select>
+        { spekaerList.map( d => <option value={d.value}>{d.label}</option>)}
+      </select>
       </header>
     </div>
   );
