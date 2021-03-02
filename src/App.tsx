@@ -36,7 +36,7 @@ function App() {
           } else {
             liff.getProfile().then(function(profile) {
               setUserName(profile.displayName);
-              setIcon(profile.pictureUrl)
+              //setIcon(profile.pictureUrl)
             }).catch(function(error) {
                 window.alert('Error getting profile: ' + error);
             });
