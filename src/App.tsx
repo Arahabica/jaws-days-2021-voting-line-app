@@ -30,7 +30,6 @@ function App() {
         liff.init({liffId: response.data.liffId})
         alert("liff.isLoggedIn() : " + liff.isLoggedIn())
         if (!liff.isLoggedIn()) {
-          alert("login")
           liff.login()
         }
         // getIDToken
