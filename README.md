@@ -1,6 +1,7 @@
 ## 構成
 Amplify + React
 
+![システム構成図](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/121860/6956320d-9bb3-c7d8-d6b9-4e5d595001ff.png)
 
 ## 開発の流れ
 
