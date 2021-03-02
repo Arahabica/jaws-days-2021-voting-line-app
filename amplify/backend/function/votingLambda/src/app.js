@@ -60,13 +60,11 @@ app.get("/speakerlist", function (req, res) {
         }
         else {
             var items = [];
-            var item = "";
             data.Items.forEach(function (item, index) {
                 console.log(item.speaker_id);
-                //item = {value: item.speaker_id, label: item.speaker_name}
                 items.push({ value: item.speaker_id, label: item.speaker_name });
             });
-            res.json(items);
+            res.json(data.Items);
         }
     });
 });

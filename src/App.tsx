@@ -14,8 +14,8 @@ function App() {
   const [icon, setIcon] = useState<string>("");
   const [value, setVale] = useState<string>("");
   const [spekaerList, setSpekaerList] = useState([]);
-  //setSpekaerList([{"value":"1","label":"鈴木さん"},{"value":"2","label":"佐藤さん"}])
-  //setVale("ccc")
+  var items:any = []
+  
   useEffect(() => {
     
     const fn = async () => {
@@ -76,9 +76,13 @@ function App() {
           alert(error)
       });
       
-      await API.get("votingApiGateway", "/speakerlist", myInit)
+      await API.post("votingApiGateway", "/speakerlist", option)
       .then(response => {
-        setSpekaerList(response.data)
+        response.data.forEach(function(item:any){
+             console.log(item.speaker_id);
+             items.push({value: item.speaker_id, label: item.speaker_name})
+         });
+        setSpekaerList(items)
         
       })
       .catch(error => {
@@ -86,6 +90,7 @@ function App() {
           alert(error)
       });
     }
+    
     fn()
   }, []);
   return (
@@ -95,8 +100,12 @@ function App() {
         <p>投票システム</p>
         <p>{eventName}</p>
         <select>
-        <option value="1">bbb</option>
-        <option value="2">aaa</option>
+{spekaerList.map(
+      (n:any)=>(
+        <option key={n.value} value={n.value}>
+          {n.label}
+        </option>
+      ))}
       </select>
       </header>
     </div>
