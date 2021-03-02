@@ -28,7 +28,6 @@ function App() {
       await API.get("votingApiGateway", "/liffid", myInit)
       .then(response => {
         liff.init({liffId: response.data.liffId})
-        alert("liff.isLoggedIn() : " + liff.isLoggedIn())
         if (!liff.isLoggedIn()) {
           liff.login()
         }
