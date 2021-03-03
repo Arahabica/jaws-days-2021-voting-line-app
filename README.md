@@ -22,6 +22,8 @@ git clone https://github.com/mochan-tk/jaws-days-2021-voting-line-app.git
 
 cd jaws-days-2021-voting-line-app
 
+npm i -g @aws-amplify/cli
+
 # 既にあるmainブランチ(amplifyではdevの環境が対応する)の設定を元に環境を構築する
 # [accessKeyId]と[secretAccessKey]はcsvで送るaws_access_key_idとaws_secret_access_keyを入力
 amplify init
@@ -40,7 +42,9 @@ amplify env add
 ? Do you want to use an existing environment? (Y/n) n
 ? Enter a name for the environment <開発環境名をいれる>
 ? Select the authentication method you want to use: (Use arrow keys) AWS profile 
-? Please choose the profile you want to use (Use arrow keys) default
+? accessKeyId:  [hidden] 
+? secretAccessKey:  [hidden]   
+? region:  ap-northeast-1
 
 # ＊印がついているのが現在選択されている環境で、これが作成した環境名になっているか確認する
 amplify env list
