@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Component } from 'react';
 import API from '@aws-amplify/api';
 import Amplify from "aws-amplify";
 import liff from '@line/liff';
+import { NumberParam, useQueryParam, StringParam } from 'use-query-params'
 import './App.css';
 import awsmobile from "./aws-exports";
 
@@ -12,12 +13,13 @@ function App() {
   const [userName, setUserName] = useState<string>("");
   const [eventName, setEventName] = useState<string>("");
   const [icon, setIcon] = useState<string>("");
-  const [value, setVale] = useState<string>("");
   const [spekaerList, setSpekaerList] = useState([]);
+  const [eventId, setEventId] = useQueryParam('event_id', StringParam);
+  
   var items:any = []
   
   useEffect(() => {
-    
+    console.log(eventId)
     const fn = async () => {
       // オプション
       const myInit = {
@@ -63,7 +65,7 @@ function App() {
           headers: {},
           response: true,
           body: {
-            event_id : "1"
+            event_id : eventId
           }
       };
       // 
