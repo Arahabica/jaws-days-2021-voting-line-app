@@ -65,6 +65,12 @@ amplify push
 # 事前にLIFFを作成します。
 # 作業ブランチのLambda Console画面に移動し、自身のブランチのLambda関数「votingLambda-xxx」の環境変数に「Liff Id」を設定する（キー：LIFF_ID）
 
+# 作業ブランチのDynamoDB Console画面に移動し、自身のブランチのテーブルに下記のデータを入力
+# 「Event-xxx」テーブル
+# {"event_id": "1","event_name": "クラウドパワポカラオケ選手権"}
+# 「SpeakerList-xxx」テーブル
+# {"event_id": "1","sort": 1,"speaker_id": "1","speaker_name": "鈴木さん"}
+
 # 必要なモジュールのインストール
 npm install
 
