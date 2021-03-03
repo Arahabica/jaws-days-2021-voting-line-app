@@ -55,7 +55,6 @@ amplify status
 amplify push
 ? Are you sure you want to continue? (Y/n) y
 
-# 先ほどデプロイしたAmplifyの開発環境とローカル環境の同期をとる
 # IAM Console画面に移動し、自身の作業ブランチのLambdaロールを「jawsdays2021LambdaRolee8758f90-」で検索します。
 # 「AmazonDynamoDBFullAccess」をアタッチします。※「その他」にキャプチャあり
 
