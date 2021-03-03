@@ -1,7 +1,0 @@
-{
-    "tableName": "SpeakerList",
-    "partitionKeyName": "event_id",
-    "partitionKeyType": "S",
-    "sortKeyName": "sort",
-    "sortKeyType": "N"
-}
