@@ -71,7 +71,7 @@
     "apivotingApiGateway": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "TemplateURL": "https://s3.amazonaws.com/amplify-jawsdays2021-dev-73847-deployment/amplify-cfn-templates/api/votingApiGateway-cloudformation-template.json",
+        "TemplateURL": "https://s3.amazonaws.com/amplify-jawsdays2021-test-231420-deployment/amplify-cfn-templates/api/votingApiGateway-cloudformation-template.json",
         "Parameters": {
           "authRoleName": {
             "Ref": "AuthRoleName"
@@ -91,78 +91,78 @@
               "Outputs.Arn"
             ]
           },
-          "env": "dev"
+          "env": "test"
         }
       }
     },
     "storageSpeaker": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "TemplateURL": "https://s3.amazonaws.com/amplify-jawsdays2021-dev-73847-deployment/amplify-cfn-templates/storage/Speaker-cloudformation-template.json",
+        "TemplateURL": "https://s3.amazonaws.com/amplify-jawsdays2021-test-231420-deployment/amplify-cfn-templates/storage/Speaker-cloudformation-template.json",
         "Parameters": {
           "tableName": "Speaker",
           "partitionKeyName": "speaker_id",
           "partitionKeyType": "S",
-          "env": "dev"
+          "env": "test"
         }
       }
     },
     "storageSpeakerList": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "TemplateURL": "https://s3.amazonaws.com/amplify-jawsdays2021-dev-73847-deployment/amplify-cfn-templates/storage/SpeakerList-cloudformation-template.json",
+        "TemplateURL": "https://s3.amazonaws.com/amplify-jawsdays2021-test-231420-deployment/amplify-cfn-templates/storage/SpeakerList-cloudformation-template.json",
         "Parameters": {
           "tableName": "SpeakerList",
           "partitionKeyName": "event_id",
           "partitionKeyType": "S",
           "sortKeyName": "sort",
           "sortKeyType": "N",
-          "env": "dev"
+          "env": "test"
         }
       }
     },
     "storageEvent": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "TemplateURL": "https://s3.amazonaws.com/amplify-jawsdays2021-dev-73847-deployment/amplify-cfn-templates/storage/Event-cloudformation-template.json",
+        "TemplateURL": "https://s3.amazonaws.com/amplify-jawsdays2021-test-231420-deployment/amplify-cfn-templates/storage/Event-cloudformation-template.json",
         "Parameters": {
           "tableName": "Event",
           "partitionKeyName": "event_id",
           "partitionKeyType": "S",
-          "env": "dev"
+          "env": "test"
         }
       }
     },
     "storageEvaluation": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "TemplateURL": "https://s3.amazonaws.com/amplify-jawsdays2021-dev-73847-deployment/amplify-cfn-templates/storage/Evaluation-cloudformation-template.json",
+        "TemplateURL": "https://s3.amazonaws.com/amplify-jawsdays2021-test-231420-deployment/amplify-cfn-templates/storage/Evaluation-cloudformation-template.json",
         "Parameters": {
           "tableName": "Evaluation",
           "partitionKeyName": "evaluation_value",
           "partitionKeyType": "N",
-          "env": "dev"
+          "env": "test"
         }
       }
     },
     "storageUser": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "TemplateURL": "https://s3.amazonaws.com/amplify-jawsdays2021-dev-73847-deployment/amplify-cfn-templates/storage/User-cloudformation-template.json",
+        "TemplateURL": "https://s3.amazonaws.com/amplify-jawsdays2021-test-231420-deployment/amplify-cfn-templates/storage/User-cloudformation-template.json",
         "Parameters": {
           "tableName": "User",
           "partitionKeyName": "user_id",
           "partitionKeyType": "S",
-          "env": "dev"
+          "env": "test"
         }
       }
     },
     "functionvotingLambda": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "TemplateURL": "https://s3.amazonaws.com/amplify-jawsdays2021-dev-73847-deployment/amplify-cfn-templates/function/votingLambda-cloudformation-template.json",
+        "TemplateURL": "https://s3.amazonaws.com/amplify-jawsdays2021-test-231420-deployment/amplify-cfn-templates/function/votingLambda-cloudformation-template.json",
         "Parameters": {
-          "deploymentBucketName": "amplify-jawsdays2021-dev-73847-deployment",
+          "deploymentBucketName": "amplify-jawsdays2021-test-231420-deployment",
           "s3Key": "amplify-builds/votingLambda-2b34524359592b776f6c-build.zip",
           "storageUserName": {
             "Fn::GetAtt": [
@@ -176,7 +176,7 @@
               "Outputs.Arn"
             ]
           },
-          "env": "dev"
+          "env": "test"
         }
       }
     }

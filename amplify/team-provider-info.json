@@ -20,23 +20,23 @@
       }
     }
   },
-  "mochantk": {
+  "test": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-jawsdays2021-mochantk-35352-authRole",
-      "UnauthRoleArn": "arn:aws:iam::382140846606:role/amplify-jawsdays2021-mochantk-35352-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::382140846606:role/amplify-jawsdays2021-mochantk-35352-authRole",
+      "AuthRoleName": "amplify-jawsdays2021-test-231420-authRole",
+      "UnauthRoleArn": "arn:aws:iam::382140846606:role/amplify-jawsdays2021-test-231420-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::382140846606:role/amplify-jawsdays2021-test-231420-authRole",
       "Region": "ap-northeast-1",
-      "DeploymentBucketName": "amplify-jawsdays2021-mochantk-35352-deployment",
-      "UnauthRoleName": "amplify-jawsdays2021-mochantk-35352-unauthRole",
-      "StackName": "amplify-jawsdays2021-mochantk-35352",
-      "StackId": "arn:aws:cloudformation:ap-northeast-1:382140846606:stack/amplify-jawsdays2021-mochantk-35352/947492f0-74c1-11eb-ad6d-0ec3c3dc7469",
+      "DeploymentBucketName": "amplify-jawsdays2021-test-231420-deployment",
+      "UnauthRoleName": "amplify-jawsdays2021-test-231420-unauthRole",
+      "StackName": "amplify-jawsdays2021-test-231420",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:382140846606:stack/amplify-jawsdays2021-test-231420/057626c0-7bad-11eb-a66c-06ef5af9a134",
       "AmplifyAppId": "duaprcxr4wcxh"
     },
     "categories": {
       "function": {
         "votingLambda": {
-          "deploymentBucketName": "amplify-jawsdays2021-mochantk-35352-deployment",
-          "s3Key": "amplify-builds/votingLambda-4d556c63754378777446-build.zip"
+          "deploymentBucketName": "amplify-jawsdays2021-test-231420-deployment",
+          "s3Key": "amplify-builds/votingLambda-2b34524359592b776f6c-build.zip"
         }
       }
     }

@@ -56,7 +56,8 @@ amplify push
 ? Are you sure you want to continue? (Y/n) y
 
 # 先ほどデプロイしたAmplifyの開発環境とローカル環境の同期をとる
-amplify pull
+# IAM Console画面に移動し、自身の作業ブランチのLambdaロールを「jawsdays2021LambdaRolee8758f90-」で検索します。
+# 「AmazonDynamoDBFullAccess」をアタッチします。※「その他」にキャプチャあり
 
 # 事前にLIFFを作成します。
 # 作業ブランチのLambda Console画面に移動し、環境変数に「Liff Id」を設定する（キー：LIFF_ID）
@@ -103,3 +104,8 @@ amplify push
     - src/App.tsx
 - バックエンド(変更した際は「amplify push」してデプロイします。)
     - amplify/backend/function/votingLambda/src/app.ts
+
+
+Lambdaロールに「AmazonDynamoDBFullAccess」をアタッチ
+
+![アタッチのキャプチャ](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/121860/ca824e88-8974-5c8e-fd3b-b6aafe804ba2.png)

@@ -3,5 +3,10 @@
     "configLevel": "project",
     "useProfile": false,
     "awsConfigFilePath": "/home/ec2-user/.amplify/awscloudformation/XtlvMYe7Yz"
+  },
+  "test": {
+    "configLevel": "project",
+    "useProfile": false,
+    "awsConfigFilePath": "/home/ec2-user/.amplify/awscloudformation/Lx41GP5bVw"
   }
 }
