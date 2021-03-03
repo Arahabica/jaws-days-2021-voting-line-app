@@ -16,7 +16,6 @@ app.use(function(req, res, next) {
 });
 
 app.get("/liffid", function(req, res) {
-    console.log("tomomi")
   res.json({liffId : process.env.LIFF_ID});
   
 });
@@ -65,15 +64,9 @@ app.post("/speakerlist", function(req, res) {
     ExpressionAttributeValues: {
         ":event_id": req.body["event_id"],
     }
-    //ExpressionAttributeNames:{'#e': 'event_id'},
-    //ExpressionAttributeValues:{':val': req.body["event_id"]},
-    //KeyConditionExpression: '#e <= :val'//検索対象が満たすべき条件を指定
+    
   };
-  let queryParams = {
-    TableName:  tableName,
-    Key: {"event_id" : req.body["event_id"]}
-  }
-
+  
   dynamodb.query(params, (err, data) => {
     if (err) {
       res.statusCode = 500;
