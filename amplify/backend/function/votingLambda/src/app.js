@@ -55,7 +55,6 @@ app.post("/speakerlist", function (req, res) {
         ExpressionAttributeValues: {
             ":event_id": req.body["event_id"]
         }
-        
     };
     dynamodb.query(params, function (err, data) {
         if (err) {

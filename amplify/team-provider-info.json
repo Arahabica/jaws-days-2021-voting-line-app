@@ -40,5 +40,26 @@
         }
       }
     }
+  },
+  "mochantkkk": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-jawsdays2021-mochantkkk-33554-authRole",
+      "UnauthRoleArn": "arn:aws:iam::382140846606:role/amplify-jawsdays2021-mochantkkk-33554-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::382140846606:role/amplify-jawsdays2021-mochantkkk-33554-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-jawsdays2021-mochantkkk-33554-deployment",
+      "UnauthRoleName": "amplify-jawsdays2021-mochantkkk-33554-unauthRole",
+      "StackName": "amplify-jawsdays2021-mochantkkk-33554",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:382140846606:stack/amplify-jawsdays2021-mochantkkk-33554/8fb44730-7bd1-11eb-baa9-0a4c2e79e972",
+      "AmplifyAppId": "duaprcxr4wcxh"
+    },
+    "categories": {
+      "function": {
+        "votingLambda": {
+          "deploymentBucketName": "amplify-jawsdays2021-mochantkkk-33554-deployment",
+          "s3Key": "amplify-builds/votingLambda-4f6d2f7749344938336e-build.zip"
+        }
+      }
+    }
   }
 }
