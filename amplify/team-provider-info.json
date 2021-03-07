@@ -55,7 +55,13 @@
     },
     "categories": {
       "function": {
-        "votingLambda": {}
+        "votingLambda": {
+          "deploymentBucketName": "amplify-jawsdays2021-rsasage-134921-deployment",
+          "s3Key": "amplify-builds/votingLambda-4f6d2f7749344938336e-build.zip"
+        }
+      },
+      "auth": {
+        "jawsdays20216495d4ee": {}
       }
     }
   }
