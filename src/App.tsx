@@ -1,6 +1,7 @@
 import React, { useEffect, useState, Component } from 'react';
 import API from '@aws-amplify/api';
-import Amplify from "aws-amplify";
+//import Auth from '@aws-amplify/auth';
+import Amplify, {Hub} from "aws-amplify";
 import liff from '@line/liff';
 import { NumberParam, useQueryParam, StringParam } from 'use-query-params'
 import './App.css';
@@ -28,27 +29,84 @@ function App() {
       };
       var idToken = null
       var accessToken = null
+      let cognitoUser: any = null
+      Hub.listen("auth", async (data) => {
+        switch (data.payload.event) {
+          case "signIn": { // サインインイベントをフック
+            cognitoUser = await Amplify.Auth.currentAuthenticatedUser();
+            console.log(`signed in ... ${cognitoUser.username}`);
+            console.log(cognitoUser);
+            window.alert('ログインしました')
+            //this.$store.dispatch("signedIn", true);
+            //this.$store.dispatch("loading", false); //処理中表示（処理終了）
+            /*
+            Amplify.Swal.fire({ // ダイアログ表示
+              position: "top-end",
+              icon: "success",
+              title: "ログインしました",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            */
+            break;
+          }
+          default:
+            break;
+        } 
+      });
       // get LiffId
       await API.get("votingApiGateway", "/liffid", myInit)
       .then(response => {
         liff.init({
           liffId: response.data.liffId
         })
-        .then(() => {
+        .then(async () => {
           if (!liff.isLoggedIn()) {
               liff.login();
           } else {
-            liff.getProfile().then(function(profile) {
-              setUserName(profile.displayName);
-              setIcon(profile.pictureUrl+"")
-              console.log(profile.pictureUrl)
-            }).catch(function(error) {
-                window.alert('Error getting profile: ' + error);
-            });
+            await new Promise(resolve => setTimeout(resolve, 2000))
+            if (!cognitoUser) {
+              const res = await Amplify.Auth.federatedSignIn({ provider: 'LINE' })
+            }
+            const profile = await liff.getProfile()
+            setUserName(profile.displayName);
+            setIcon(profile.pictureUrl+"")
+            console.log(profile.pictureUrl)
             idToken = liff.getIDToken()
             accessToken = liff.getAccessToken()
             console.log("★idToken : " + idToken)
             console.log("★accessToken : " + accessToken)
+            if (false && !cognitoUser) {
+              const result = await API.post("votingApiGateway", "/login", {
+                headers: {},
+                response: true,
+                body: {
+                  userId : profile.userId
+                }
+              })
+              console.log(result)
+              /*
+              const expiresIn = 3600
+              await Amplify.Auth.federatedSignIn(
+              //'LINE', // The Auth0 Domain,
+              'ja-ws-days-2021-voting-rsasage.auth.ap-northeast-1.amazoncognito.com',
+              //'ja-wf',
+              {
+                  identity_id: idToken, // The id token from Auth0
+                  // expires_at means the timestamp when the token provided expires,
+                  // here we can derive it from the expiresIn parameter provided,
+                  // then convert its unit from second to millisecond, and add the current timestamp
+                  expires_at:  expiresIn * 1000 + new Date().getTime() // the expiration timestamp
+              },
+              { 
+                  // the user object, you can put whatever property you get from the Auth0
+                  // for example:
+                  name: profile.displayName, // the user name
+                  //email, // Optional, the email address
+                  // phoneNumber, // Optional, the phone number
+              })
+              */
+            }
           }
         })
         .catch((err) => {
