@@ -54,11 +54,14 @@
       "AmplifyAppId": "d1e8lmxzor9sw6"
     },
     "categories": {
-      "auth": {
-        "jawsdays202196bab5c0": {}
-      },
       "function": {
-        "votingLambda": {}
+        "votingLambda": {
+          "deploymentBucketName": "amplify-jawsdays2021-rsasage-201603-deployment",
+          "s3Key": "amplify-builds/votingLambda-734a365a6f5433727a73-build.zip"
+        }
+      },
+      "auth": {
+        "jawsdays2021031a4503": {}
       }
     }
   }
