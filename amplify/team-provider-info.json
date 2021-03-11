@@ -43,25 +43,19 @@
   },
   "rsasage": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-jawsdays2021-rsasage-201603-authRole",
-      "UnauthRoleArn": "arn:aws:iam::561783780530:role/amplify-jawsdays2021-rsasage-201603-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::561783780530:role/amplify-jawsdays2021-rsasage-201603-authRole",
+      "AuthRoleName": "amplify-jawsdays2021-rsasage-112638-authRole",
+      "UnauthRoleArn": "arn:aws:iam::561783780530:role/amplify-jawsdays2021-rsasage-112638-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::561783780530:role/amplify-jawsdays2021-rsasage-112638-authRole",
       "Region": "ap-northeast-1",
-      "DeploymentBucketName": "amplify-jawsdays2021-rsasage-201603-deployment",
-      "UnauthRoleName": "amplify-jawsdays2021-rsasage-201603-unauthRole",
-      "StackName": "amplify-jawsdays2021-rsasage-201603",
-      "StackId": "arn:aws:cloudformation:ap-northeast-1:561783780530:stack/amplify-jawsdays2021-rsasage-201603/82556c50-7f36-11eb-bd66-0ec3b06a5f1b",
-      "AmplifyAppId": "d1e8lmxzor9sw6"
+      "DeploymentBucketName": "amplify-jawsdays2021-rsasage-112638-deployment",
+      "UnauthRoleName": "amplify-jawsdays2021-rsasage-112638-unauthRole",
+      "StackName": "amplify-jawsdays2021-rsasage-112638",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:561783780530:stack/amplify-jawsdays2021-rsasage-112638/368edf80-8211-11eb-b3f3-064ae01377ff",
+      "AmplifyAppId": "d5zkgr4ba4pjm"
     },
     "categories": {
       "function": {
-        "votingLambda": {
-          "deploymentBucketName": "amplify-jawsdays2021-rsasage-201603-deployment",
-          "s3Key": "amplify-builds/votingLambda-734a365a6f5433727a73-build.zip"
-        }
-      },
-      "auth": {
-        "jawsdays2021031a4503": {}
+        "votingLambda": {}
       }
     }
   }

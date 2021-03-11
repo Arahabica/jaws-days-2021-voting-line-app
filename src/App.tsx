@@ -64,10 +64,10 @@ function App() {
           if (!liff.isLoggedIn()) {
               liff.login();
           } else {
-            await new Promise(resolve => setTimeout(resolve, 2000))
-            if (!cognitoUser) {
-              const res = await Amplify.Auth.federatedSignIn({ provider: 'LINE' })
-            }
+            //await new Promise(resolve => setTimeout(resolve, 2000))
+            //if (!cognitoUser) {
+            //  const res = await Amplify.Auth.federatedSignIn({ provider: 'LINE' })
+            //}
             const profile = await liff.getProfile()
             setUserName(profile.displayName);
             setIcon(profile.pictureUrl+"")
@@ -76,7 +76,7 @@ function App() {
             accessToken = liff.getAccessToken()
             console.log("★idToken : " + idToken)
             console.log("★accessToken : " + accessToken)
-            if (false && !cognitoUser) {
+            if (!cognitoUser) {
               const result = await API.post("votingApiGateway", "/login", {
                 headers: {},
                 response: true,

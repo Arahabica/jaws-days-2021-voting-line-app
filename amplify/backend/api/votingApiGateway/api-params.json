@@ -31,6 +31,14 @@
                 "open": true
             },
             "policyResourceName": "/speakerlist"
+        },
+        {
+            "name": "/login",
+            "lambdaFunction": "votingLambda",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/login"
         }
     ],
     "resourceName": "votingApiGateway",
@@ -43,8 +51,8 @@
     "privacy": {
         "auth": 0,
         "unauth": 0,
-        "authRoleName": "amplify-jawsdays2021-dev-73847-authRole",
-        "unAuthRoleName": "amplify-jawsdays2021-dev-73847-unauthRole"
+        "authRoleName": "amplify-jawsdays2021-rsasage-201603-authRole",
+        "unAuthRoleName": "amplify-jawsdays2021-rsasage-201603-unauthRole"
     },
     "dependsOn": [
         {
@@ -56,5 +64,5 @@
             ]
         }
     ],
-    "uuid": "e98655a2"
+    "uuid": "039b1f2d"
 }
