@@ -50,7 +50,7 @@ function App() {
                         }
                     };
                     console.log(option);
-                    //await API.post("votingApiGateway", "/event", option)
+                    await API.post("votingApiGateway", "/event", option)
                     //this.$store.dispatch("signedIn", true);
                     //this.$store.dispatch("loading", false); //処理中表示（処理終了）
                     break;
