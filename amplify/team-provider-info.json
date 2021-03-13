@@ -57,8 +57,12 @@
       "function": {
         "votingLambda": {
           "deploymentBucketName": "amplify-jawsdays2021-rsasage-153747-deployment",
-          "s3Key": "amplify-builds/votingLambda-4f6d2f7749344938336e-build.zip"
+          "s3Key": "amplify-builds/votingLambda-3741736575312b58614e-build.zip"
         }
+      },
+      "auth": {
+        "cognitoe1201225": {},
+        "cognito70833206": {}
       }
     }
   }

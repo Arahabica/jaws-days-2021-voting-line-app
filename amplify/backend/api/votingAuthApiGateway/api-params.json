@@ -1,0 +1,42 @@
+{
+    "paths": [
+        {
+            "name": "/voting",
+            "lambdaFunction": "votingLambda",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            },
+            "policyResourceName": "/voting"
+        }
+    ],
+    "resourceName": "votingAuthApiGateway",
+    "apiName": "votingAuthApiGateway",
+    "functionArns": [
+        {
+            "lambdaFunction": "votingLambda"
+        }
+    ],
+    "privacy": {
+        "auth": 1,
+        "unauth": 0,
+        "authRoleName": "amplify-jawsdays2021-rsasage-153747-authRole",
+        "unAuthRoleName": "amplify-jawsdays2021-rsasage-153747-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "votingLambda",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}

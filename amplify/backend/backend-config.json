@@ -13,6 +13,20 @@
           ]
         }
       ]
+    },
+    "votingAuthApiGateway": {
+      "service": "API Gateway",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "votingLambda",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        }
+      ]
     }
   },
   "storage": {
@@ -56,6 +70,14 @@
           }
         }
       ]
+    }
+  },
+  "auth": {
+    "cognito70833206": {
+      "service": "Cognito",
+      "serviceType": "managed",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": []
     }
   }
 }

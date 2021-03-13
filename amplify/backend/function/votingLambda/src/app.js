@@ -5,6 +5,9 @@ var bodyParser = require("body-parser");
 var AWS = require("aws-sdk");
 //var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
 var dynamodb = new AWS.DynamoDB.DocumentClient();
+var cognitoidentity = new AWS.CognitoIdentity();
+var identityPoolId = 'ap-northeast-1:07688e0d-4bcd-44fd-a121-dc4501916133';
+var developerProvider = 'login.jawsdays2021.rsasage2';
 var app = express();
 app.use(bodyParser.json());
 // Enable CORS for all methods
@@ -55,7 +58,6 @@ app.post("/speakerlist", function (req, res) {
         ExpressionAttributeValues: {
             ":event_id": req.body["event_id"]
         }
-        
     };
     dynamodb.query(params, function (err, data) {
         if (err) {
@@ -88,6 +90,23 @@ app.get("/speakerlist", function (req, res) {
                 items.push({ value: item.speaker_id, label: item.speaker_name });
             });
             res.json(data.Items);
+        }
+    });
+});
+app.post("/login", function (req, res) {
+    var _a;
+    var params = {
+        IdentityPoolId: identityPoolId,
+        Logins: (_a = {},
+            _a[developerProvider] = req.body.userId,
+            _a)
+    };
+    cognitoidentity.getOpenIdTokenForDeveloperIdentity(params, function (err, data) {
+        if (err) {
+            throw err;
+        }
+        else {
+            res.json(data);
         }
     });
 });

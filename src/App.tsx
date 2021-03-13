@@ -1,6 +1,6 @@
 import React, { useEffect, useState, Component } from 'react';
 import API from '@aws-amplify/api';
-import Amplify from "aws-amplify";
+import Amplify, {Hub} from "aws-amplify";
 import liff from '@line/liff';
 import { NumberParam, useQueryParam, StringParam } from 'use-query-params'
 import './App.css';
@@ -28,27 +28,80 @@ function App() {
       };
       var idToken = null
       var accessToken = null
+      let cognitoUser: any = null
+        Hub.listen("auth", async (data) => {
+            switch (data.payload.event) {
+                case "signIn": { // サインインイベントをフック
+                    cognitoUser = await Amplify.Auth.currentAuthenticatedUser();
+                    console.log(`signed in ... ${cognitoUser.username}`);
+                    console.log(cognitoUser);
+                    //window.alert('ログインしました')
+                    // console.log('hh');
+                    //const credentials = await Amplify.Auth.currentSession()
+                    //console.log('xx', credentials);
+                    var option = {
+                        headers: {
+                            // Authorization: `Bearer ${currentSession.getIdToken().getJwtToken()}`,
+                            Authorization: cognitoUser.token,
+                        },
+                        response: true,
+                        body: {
+                            event_id : "1"
+                        }
+                    };
+                    console.log(option);
+                    //await API.post("votingApiGateway", "/event", option)
+                    //this.$store.dispatch("signedIn", true);
+                    //this.$store.dispatch("loading", false); //処理中表示（処理終了）
+                    break;
+                }
+                default:
+                    break;
+            }
+        });
       // get LiffId
       await API.get("votingApiGateway", "/liffid", myInit)
       .then(response => {
         liff.init({
           liffId: response.data.liffId
         })
-        .then(() => {
+        .then(async () => {
           if (!liff.isLoggedIn()) {
               liff.login();
           } else {
-            liff.getProfile().then(function(profile) {
-              setUserName(profile.displayName);
-              setIcon(profile.pictureUrl+"")
-              console.log(profile.pictureUrl)
-            }).catch(function(error) {
-                window.alert('Error getting profile: ' + error);
-            });
+            const profile = await liff.getProfile()
+            setUserName(profile.displayName);
+            setIcon(profile.pictureUrl+"")
+            console.log(profile.pictureUrl)
             idToken = liff.getIDToken()
             accessToken = liff.getAccessToken()
             console.log("★idToken : " + idToken)
             console.log("★accessToken : " + accessToken)
+            if (!cognitoUser) {
+                const result = await API.post("votingApiGateway", "/login", {
+                    headers: {},
+                    response: true,
+                    body: {
+                        userId : profile.userId
+                    }
+                })
+                console.log(result)
+                  const identityId = result.data.IdentityId
+                  const token = result.data.Token
+
+                  const expiresIn = 3600
+                  await Amplify.Auth.federatedSignIn(
+                      'cognito-identity.amazonaws.com',
+                      {
+                          identity_id: identityId,
+                          token,
+                          expires_at:  expiresIn * 1000 + new Date().getTime()
+                      },
+                      {
+                          userId: profile.userId,
+                          name: profile.displayName,
+                      })
+              }
           }
         })
         .catch((err) => {
