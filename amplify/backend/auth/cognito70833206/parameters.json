@@ -1,5 +1,5 @@
 {
-    "identityPoolName": "jawsdays2021_identitypool_9e45215d",
+    "identityPoolName": "cognito70833206_identitypool_ef5d0a84",
     "allowUnauthenticatedIdentities": false,
     "resourceNameTruncated": "jawsda9e45215d",
     "userPoolName": "jawsdays2021_userpool_9e45215d",
@@ -14,7 +14,7 @@
     "smsVerificationMessage": "Your verification code is {####}",
     "emailVerificationSubject": "Your verification code",
     "emailVerificationMessage": "Your verification code is {####}",
-    "defaultPasswordPolicy": false,
+    "defaultPasswordPolicy": true,
     "passwordPolicyMinLength": 8,
     "passwordPolicyCharacters": [],
     "requiredAttributes": [
@@ -44,14 +44,45 @@
             "Arn"
         ]
     },
-    "useDefault": "defaultSocial",
+    "useDefault": "default",
     "userPoolGroupList": [],
     "serviceName": "Cognito",
-    "dependsOn": [],
-    "hostedUI": true,
-    "hostedUIDomainName": "ja-ws-days-2021-voting-rs",
-    "authProvidersUserPool": [],
-    "hostedUIProviderMeta": "[]",
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://rsasage2.d2lxns1xtrtpk1.amplifyapp.com/\"],\"LogoutURLs\":[\"https://rsasage2.d2lxns1xtrtpk1.amplifyapp.com/\"]}",
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "cognito70833206CreateAuthChallenge",
+            "triggerProvider": "Cognito",
+            "attributes": [
+                "Arn",
+                "Name"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "cognito70833206DefineAuthChallenge",
+            "triggerProvider": "Cognito",
+            "attributes": [
+                "Arn",
+                "Name"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "cognito70833206VerifyAuthChallengeResponse",
+            "triggerProvider": "Cognito",
+            "attributes": [
+                "Arn",
+                "Name"
+            ]
+        }
+    ],
+    "hostedUI": false,
+    "userPoolGroups": false,
+    "adminQueries": false,
+    "triggers": "{\n  \"CreateAuthChallenge\": [\n    \"boilerplate-create-challenge\"\n  ],\n  \"DefineAuthChallenge\": [\n    \"boilerplate-define-challenge\"\n  ],\n  \"VerifyAuthChallengeResponse\": [\n    \"boilerplate-verify\"\n  ]\n}",
+    "parentStack": {
+        "Ref": "AWS::StackId"
+    },
+    "permissions": [],
     "authProviders": []
 }

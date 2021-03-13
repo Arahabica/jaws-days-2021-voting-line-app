@@ -58,7 +58,12 @@
         "votingLambda": {
           "deploymentBucketName": "amplify-jawsdays2021-rsasage-153747-deployment",
           "s3Key": "amplify-builds/votingLambda-3741736575312b58614e-build.zip"
-        }
+        },
+        "cognito70833206CreateAuthChallenge": {
+          "CHALLENGEANSWER": ""
+        },
+        "cognito70833206DefineAuthChallenge": {},
+        "cognito70833206VerifyAuthChallengeResponse": {}
       },
       "auth": {
         "cognitoe1201225": {},

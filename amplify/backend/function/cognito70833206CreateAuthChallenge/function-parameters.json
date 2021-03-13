@@ -1,0 +1,18 @@
+{
+  "trigger": true,
+  "modules": [
+    "boilerplate-create-challenge"
+  ],
+  "parentResource": "cognito70833206",
+  "functionName": "cognito70833206CreateAuthChallenge",
+  "resourceName": "cognito70833206CreateAuthChallenge",
+  "parentStack": "auth",
+  "triggerEnvs": "[]",
+  "triggerDir": "/usr/local/lib/node_modules/@aws-amplify/cli/node_modules/amplify-category-auth/provider-utils/awscloudformation/triggers/CreateAuthChallenge",
+  "triggerTemplate": "CreateAuthChallenge.json.ejs",
+  "triggerEventPath": "CreateAuthChallenge.event.json",
+  "roleName": "cognito70833206CreateAuthChallenge",
+  "skipEdit": true,
+  "CHALLENGEANSWER": "",
+  "enableCors": false
+}

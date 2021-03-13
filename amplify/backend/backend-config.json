@@ -70,6 +70,21 @@
           }
         }
       ]
+    },
+    "cognito70833206CreateAuthChallenge": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "cognito70833206DefineAuthChallenge": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "cognito70833206VerifyAuthChallengeResponse": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "auth": {
@@ -77,7 +92,35 @@
       "service": "Cognito",
       "serviceType": "managed",
       "providerPlugin": "awscloudformation",
-      "dependsOn": []
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "cognito70833206CreateAuthChallenge",
+          "triggerProvider": "Cognito",
+          "attributes": [
+            "Arn",
+            "Name"
+          ]
+        },
+        {
+          "category": "function",
+          "resourceName": "cognito70833206DefineAuthChallenge",
+          "triggerProvider": "Cognito",
+          "attributes": [
+            "Arn",
+            "Name"
+          ]
+        },
+        {
+          "category": "function",
+          "resourceName": "cognito70833206VerifyAuthChallengeResponse",
+          "triggerProvider": "Cognito",
+          "attributes": [
+            "Arn",
+            "Name"
+          ]
+        }
+      ]
     }
   }
 }

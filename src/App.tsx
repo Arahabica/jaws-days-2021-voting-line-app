@@ -78,6 +78,13 @@ function App() {
             console.log("★idToken : " + idToken)
             console.log("★accessToken : " + accessToken)
             if (!cognitoUser) {
+                await Amplify.Auth.signIn({
+                    username: profile.userId, // Required, the username
+                    validationData: [{
+                        accessToken
+                    }]
+                })
+                /*
                 const result = await API.post("votingApiGateway", "/login", {
                     headers: {},
                     response: true,
@@ -101,6 +108,7 @@ function App() {
                           userId: profile.userId,
                           name: profile.displayName,
                       })
+                */
               }
           }
         })
