@@ -110,5 +110,9 @@ app.post("/login", function (req, res) {
         }
     });
 });
+app.post("/voting", function (req, res) {
+    console.log(req);
+    res.json({ item: "Hello！" });
+});
 app.listen(3000, function () { return console.log('Server is running'); });
 module.exports = app;
