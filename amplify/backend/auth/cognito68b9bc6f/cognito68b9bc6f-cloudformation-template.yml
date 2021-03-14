@@ -31,16 +31,6 @@ Parameters:
   
   
   
-  functioncognito68b9bc6fPostAuthenticationArn:
-    Type: String
-    Default: functioncognito68b9bc6fPostAuthenticationArn
-  
-  functioncognito68b9bc6fPostAuthenticationName:
-    Type: String
-    Default: functioncognito68b9bc6fPostAuthenticationName
-  
-  
-  
   functioncognito68b9bc6fPreSignupArn:
     Type: String
     Default: functioncognito68b9bc6fPreSignupArn
@@ -197,6 +187,7 @@ Parameters:
   dependsOn:
     Type: CommaDelimitedList
       
+            
         
   authProviders:
     Type: CommaDelimitedList
@@ -267,8 +258,6 @@ Resources:
           DefineAuthChallenge: !Ref functioncognito68b9bc6fDefineAuthChallengeArn
         
         
-          PostAuthentication: !Ref functioncognito68b9bc6fPostAuthenticationArn
-        
         
         
         
@@ -319,15 +308,6 @@ Resources:
       FunctionName: !Ref functioncognito68b9bc6fDefineAuthChallengeName
       SourceArn: !GetAtt UserPool.Arn
   
-  
-  UserPoolPostAuthenticationLambdaInvokePermission:
-    Type: "AWS::Lambda::Permission"
-    DependsOn: UserPool
-    Properties:
-      Action: "lambda:invokeFunction"
-      Principal: "cognito-idp.amazonaws.com"
-      FunctionName: !Ref functioncognito68b9bc6fPostAuthenticationName
-      SourceArn: !GetAtt UserPool.Arn
   
   
   
@@ -536,7 +516,7 @@ Outputs :
   IdentityPoolName:
     Value: !GetAtt IdentityPool.Name
   
-  
+
   
   
   UserPoolId:

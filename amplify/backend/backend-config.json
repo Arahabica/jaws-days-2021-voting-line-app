@@ -109,15 +109,6 @@
         },
         {
           "category": "function",
-          "resourceName": "cognito68b9bc6fPostAuthentication",
-          "triggerProvider": "Cognito",
-          "attributes": [
-            "Arn",
-            "Name"
-          ]
-        },
-        {
-          "category": "function",
           "resourceName": "cognito68b9bc6fPreSignup",
           "triggerProvider": "Cognito",
           "attributes": [

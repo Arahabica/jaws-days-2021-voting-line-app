@@ -47,7 +47,7 @@
     "useDefault": "manual",
     "userPoolGroups": false,
     "adminQueries": false,
-    "triggers": "{\n  \"CreateAuthChallenge\": [\n    \"boilerplate-create-challenge\"\n  ],\n  \"DefineAuthChallenge\": [\n    \"boilerplate-define-challenge\"\n  ],\n  \"PostAuthentication\": [\n    \"custom\"\n  ],\n  \"PreSignup\": [\n    \"custom\"\n  ],\n  \"VerifyAuthChallengeResponse\": [\n    \"boilerplate-verify\"\n  ]\n}",
+    "triggers": "{\n  \"CreateAuthChallenge\": [\n    \"boilerplate-create-challenge\"\n  ],\n  \"DefineAuthChallenge\": [\n    \"boilerplate-define-challenge\"\n  ],\n  \"PreSignup\": [\n    \"custom\"\n  ],\n  \"VerifyAuthChallengeResponse\": [\n    \"boilerplate-verify\"\n  ]\n}",
     "hostedUI": false,
     "userPoolGroupList": [],
     "serviceName": "Cognito",
@@ -68,15 +68,6 @@
         {
             "category": "function",
             "resourceName": "cognito68b9bc6fDefineAuthChallenge",
-            "triggerProvider": "Cognito",
-            "attributes": [
-                "Arn",
-                "Name"
-            ]
-        },
-        {
-            "category": "function",
-            "resourceName": "cognito68b9bc6fPostAuthentication",
             "triggerProvider": "Cognito",
             "attributes": [
                 "Arn",
