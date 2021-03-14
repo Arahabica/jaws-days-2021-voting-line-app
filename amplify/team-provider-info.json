@@ -62,23 +62,23 @@
         "cognito68b9bc6fCreateAuthChallenge": {
           "CHALLENGEANSWER": "",
           "deploymentBucketName": "amplify-jawsdays2021-rsasage-192721-deployment",
-          "s3Key": "amplify-builds/cognito68b9bc6fCreateAuthChallenge-636c546b477541677873-build.zip"
+          "s3Key": "amplify-builds/cognito68b9bc6fCreateAuthChallenge-4e68596c4753642b466d-build.zip"
         },
         "cognito68b9bc6fDefineAuthChallenge": {
           "deploymentBucketName": "amplify-jawsdays2021-rsasage-192721-deployment",
-          "s3Key": "amplify-builds/cognito68b9bc6fDefineAuthChallenge-5965784e555837794778-build.zip"
+          "s3Key": "amplify-builds/cognito68b9bc6fDefineAuthChallenge-35426b786f706a484f44-build.zip"
         },
         "cognito68b9bc6fPostAuthentication": {
           "deploymentBucketName": "amplify-jawsdays2021-rsasage-192721-deployment",
-          "s3Key": "amplify-builds/cognito68b9bc6fPostAuthentication-746e43786b765a333675-build.zip"
+          "s3Key": "amplify-builds/cognito68b9bc6fPostAuthentication-644b6f75726a63394b73-build.zip"
         },
         "cognito68b9bc6fPreSignup": {
           "deploymentBucketName": "amplify-jawsdays2021-rsasage-192721-deployment",
-          "s3Key": "amplify-builds/cognito68b9bc6fPreSignup-76694959536c764e6771-build.zip"
+          "s3Key": "amplify-builds/cognito68b9bc6fPreSignup-65445a6c6d3532713262-build.zip"
         },
         "cognito68b9bc6fVerifyAuthChallengeResponse": {
           "deploymentBucketName": "amplify-jawsdays2021-rsasage-192721-deployment",
-          "s3Key": "amplify-builds/cognito68b9bc6fVerifyAuthChallengeResponse-3173563338456c675a50-build.zip"
+          "s3Key": "amplify-builds/cognito68b9bc6fVerifyAuthChallengeResponse-4f7673486268354c526e-build.zip"
         }
       },
       "auth": {
