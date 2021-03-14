@@ -1,13 +1,16 @@
 import React, { useEffect, useState, Component } from 'react';
 import API from '@aws-amplify/api';
-import Amplify, {Hub} from "aws-amplify";
+import Amplify from "aws-amplify";
 import liff from '@line/liff';
 import { NumberParam, useQueryParam, StringParam } from 'use-query-params'
 import './App.css';
+import AuthService from "./AuthService";
 import awsmobile from "./aws-exports";
 
 // Amplifyの設定を行う
 Amplify.configure(awsmobile)
+
+const auth = new AuthService()
 
 function App() {
   const [userName, setUserName] = useState<string>("");
@@ -17,45 +20,16 @@ function App() {
   const [eventId, setEventId] = useQueryParam('event_id', StringParam);
   
   var items:any = []
-  const getRandomPassword = () => {
-    const randomValues = new Uint8Array(30);
-    window.crypto.getRandomValues(randomValues);
-    return Array.from(randomValues)
-        .map(v => v.toString(16).padStart(2, '0'))
-        .join('');
-  }
   
   useEffect(() => {
     console.log(eventId)
     const fn = async () => {
-      let cognitoUser:any = null
-      Hub.listen("auth", async (data) => {
-        switch (data.payload.event) {
-          case "signIn": {
-            cognitoUser = await Amplify.Auth.currentAuthenticatedUser();
-            console.log(`signed in ... ${cognitoUser.username}`);
-            console.log(cognitoUser);
-            var option = {
-              response: true,
-              body: {
-                event_id: "1"
-              }
-            };
-            console.log(option);
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            await API.post("votingApiGateway", "/vote", option);
-            break;
-          }
-          default:
-            break;
-        }
-      });
       // オプション
       const myInit = {
           headers: {},
           response: true
       };
-      var idToken = null
+      let idToken: string = ''
       var accessToken = null
       // get LiffId
       await API.get("votingApiGateway", "/liffid", myInit)
@@ -71,29 +45,12 @@ function App() {
             setUserName(profile.displayName);
             setIcon(profile.pictureUrl+"")
             console.log(profile.pictureUrl)
-            idToken = liff.getIDToken()
+            idToken = liff.getIDToken() || ''
             accessToken = liff.getAccessToken()
             console.log("★idToken : " + idToken)
             console.log("★accessToken : " + accessToken)
-
-            if (!cognitoUser) {
-              try {
-                cognitoUser = await Amplify.Auth.signIn({
-                  username: profile.userId
-                });
-              } catch (e) {
-                await Amplify.Auth.signUp({
-                  username: profile.userId, // Required, the username
-                  password: getRandomPassword(),
-                  attributes: {
-                    email: `${getRandomPassword()}@sample.com`,
-                  },
-                });
-                cognitoUser = await Amplify.Auth.signIn({
-                  username: profile.userId
-                });
-              }
-              cognitoUser = await Amplify.Auth.sendCustomChallengeAnswer(cognitoUser, idToken);
+            if (!auth.isAuthenticated()) {
+              await auth.signIn(profile.userId, idToken);
             }
           }
         })
