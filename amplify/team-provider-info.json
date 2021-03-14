@@ -68,10 +68,6 @@
           "deploymentBucketName": "amplify-jawsdays2021-rsasage-192721-deployment",
           "s3Key": "amplify-builds/cognito68b9bc6fDefineAuthChallenge-35426b786f706a484f44-build.zip"
         },
-        "cognito68b9bc6fPostAuthentication": {
-          "deploymentBucketName": "amplify-jawsdays2021-rsasage-192721-deployment",
-          "s3Key": "amplify-builds/cognito68b9bc6fPostAuthentication-644b6f75726a63394b73-build.zip"
-        },
         "cognito68b9bc6fPreSignup": {
           "deploymentBucketName": "amplify-jawsdays2021-rsasage-192721-deployment",
           "s3Key": "amplify-builds/cognito68b9bc6fPreSignup-65445a6c6d3532713262-build.zip"

@@ -67,11 +67,6 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
-    "cognito68b9bc6fPostAuthentication": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
     "cognito68b9bc6fPreSignup": {
       "build": true,
       "providerPlugin": "awscloudformation",
