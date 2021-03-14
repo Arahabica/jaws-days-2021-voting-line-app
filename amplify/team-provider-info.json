@@ -40,5 +40,23 @@
         }
       }
     }
+  },
+  "rsasage": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-jawsdays2021-rsasage-192721-authRole",
+      "UnauthRoleArn": "arn:aws:iam::561783780530:role/amplify-jawsdays2021-rsasage-192721-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::561783780530:role/amplify-jawsdays2021-rsasage-192721-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-jawsdays2021-rsasage-192721-deployment",
+      "UnauthRoleName": "amplify-jawsdays2021-rsasage-192721-unauthRole",
+      "StackName": "amplify-jawsdays2021-rsasage-192721",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:561783780530:stack/amplify-jawsdays2021-rsasage-192721/df3619a0-84af-11eb-a220-0a935defdb9b",
+      "AmplifyAppId": "d1xj8zp8xv6vm7"
+    },
+    "categories": {
+      "function": {
+        "votingLambda": {}
+      }
+    }
   }
 }
