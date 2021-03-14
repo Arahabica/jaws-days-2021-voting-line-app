@@ -55,7 +55,6 @@ app.post("/speakerlist", function (req, res) {
         ExpressionAttributeValues: {
             ":event_id": req.body["event_id"]
         }
-        
     };
     dynamodb.query(params, function (err, data) {
         if (err) {
@@ -90,6 +89,10 @@ app.get("/speakerlist", function (req, res) {
             res.json(data.Items);
         }
     });
+});
+app.post("/vote", function (req, res) {
+    console.log(req);
+    res.json({ item: "Hello！" });
 });
 app.listen(3000, function () { return console.log('Server is running'); });
 module.exports = app;

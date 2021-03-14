@@ -104,6 +104,10 @@ app.get("/speakerlist", function(req, res) {
     }
   });
 });
+app.post("/vote", function (req, res) {
+  console.log(req);
+  res.json({ item: "Hello！" });
+});
 
 app.listen(3000, () => console.log('Server is running'));
 

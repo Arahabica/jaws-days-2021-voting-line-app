@@ -7,7 +7,7 @@
   "functionName": "cognito68b9bc6fVerifyAuthChallengeResponse",
   "resourceName": "cognito68b9bc6fVerifyAuthChallengeResponse",
   "parentStack": "auth",
-  "triggerEnvs": [],
+  "triggerEnvs": "[]",
   "triggerDir": "/usr/local/lib/node_modules/@aws-amplify/cli/node_modules/amplify-category-auth/provider-utils/awscloudformation/triggers/VerifyAuthChallengeResponse",
   "triggerTemplate": "VerifyAuthChallengeResponse.json.ejs",
   "triggerEventPath": "VerifyAuthChallengeResponse.event.json",

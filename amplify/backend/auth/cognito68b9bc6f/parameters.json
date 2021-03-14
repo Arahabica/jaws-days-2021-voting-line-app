@@ -1,4 +1,6 @@
 {
+    "identityPoolName": "cognito68b9bc6f_identitypool_aed5f6ec",
+    "allowUnauthenticatedIdentities": false,
     "resourceNameTruncated": "jawsdaed558762",
     "userPoolName": "jawsdays2021_userpool_ed558762",
     "autoVerifiedAttributes": [
@@ -24,11 +26,11 @@
         "email"
     ],
     "userpoolClientReadAttributes": [
-        "email"
+        "email_verified"
     ],
     "userpoolClientLambdaRole": "jawsdaed558762_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": true,
-    "authSelections": "userPoolOnly",
+    "authSelections": "identityPoolAndUserPool",
     "resourceName": "cognito68b9bc6f",
     "authRoleArn": {
         "Fn::GetAtt": [

@@ -55,14 +55,31 @@
     },
     "categories": {
       "function": {
-        "votingLambda": {},
-        "cognito68b9bc6fCreateAuthChallenge": {
-          "CHALLENGEANSWER": ""
+        "votingLambda": {
+          "deploymentBucketName": "amplify-jawsdays2021-rsasage-192721-deployment",
+          "s3Key": "amplify-builds/votingLambda-544e56796e6554756972-build.zip"
         },
-        "cognito68b9bc6fDefineAuthChallenge": {},
-        "cognito68b9bc6fPostAuthentication": {},
-        "cognito68b9bc6fPreSignup": {},
-        "cognito68b9bc6fVerifyAuthChallengeResponse": {}
+        "cognito68b9bc6fCreateAuthChallenge": {
+          "CHALLENGEANSWER": "",
+          "deploymentBucketName": "amplify-jawsdays2021-rsasage-192721-deployment",
+          "s3Key": "amplify-builds/cognito68b9bc6fCreateAuthChallenge-636c546b477541677873-build.zip"
+        },
+        "cognito68b9bc6fDefineAuthChallenge": {
+          "deploymentBucketName": "amplify-jawsdays2021-rsasage-192721-deployment",
+          "s3Key": "amplify-builds/cognito68b9bc6fDefineAuthChallenge-5965784e555837794778-build.zip"
+        },
+        "cognito68b9bc6fPostAuthentication": {
+          "deploymentBucketName": "amplify-jawsdays2021-rsasage-192721-deployment",
+          "s3Key": "amplify-builds/cognito68b9bc6fPostAuthentication-746e43786b765a333675-build.zip"
+        },
+        "cognito68b9bc6fPreSignup": {
+          "deploymentBucketName": "amplify-jawsdays2021-rsasage-192721-deployment",
+          "s3Key": "amplify-builds/cognito68b9bc6fPreSignup-76694959536c764e6771-build.zip"
+        },
+        "cognito68b9bc6fVerifyAuthChallengeResponse": {
+          "deploymentBucketName": "amplify-jawsdays2021-rsasage-192721-deployment",
+          "s3Key": "amplify-builds/cognito68b9bc6fVerifyAuthChallengeResponse-3173563338456c675a50-build.zip"
+        }
       },
       "auth": {
         "cognito68b9bc6f": {}
