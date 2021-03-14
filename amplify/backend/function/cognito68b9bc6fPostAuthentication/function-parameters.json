@@ -1,0 +1,17 @@
+{
+  "trigger": true,
+  "modules": [
+    "custom"
+  ],
+  "parentResource": "cognito68b9bc6f",
+  "functionName": "cognito68b9bc6fPostAuthentication",
+  "resourceName": "cognito68b9bc6fPostAuthentication",
+  "parentStack": "auth",
+  "triggerEnvs": [],
+  "triggerDir": "/usr/local/lib/node_modules/@aws-amplify/cli/node_modules/amplify-category-auth/provider-utils/awscloudformation/triggers/PostAuthentication",
+  "triggerTemplate": "PostAuthentication.json.ejs",
+  "triggerEventPath": "PostAuthentication.event.json",
+  "roleName": "cognito68b9bc6fPostAuthentication",
+  "skipEdit": true,
+  "enableCors": false
+}

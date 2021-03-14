@@ -1,0 +1,16 @@
+{
+  "name": "LINEPreSignup",
+  "version": "1.0.0",
+  "description": "PreSignup Lambda function for LINE",
+  "main": "index.js",
+  "license": "Apache-2.0",
+  "scripts": {
+    "build": "tsc *.ts"
+  },
+  "dependencies": {
+    "aws-lambda": "^1.0.6"
+  },
+  "devDependencies": {
+    "typescript": "^4.2.3"
+  }
+}

@@ -55,7 +55,17 @@
     },
     "categories": {
       "function": {
-        "votingLambda": {}
+        "votingLambda": {},
+        "cognito68b9bc6fCreateAuthChallenge": {
+          "CHALLENGEANSWER": ""
+        },
+        "cognito68b9bc6fDefineAuthChallenge": {},
+        "cognito68b9bc6fPostAuthentication": {},
+        "cognito68b9bc6fPreSignup": {},
+        "cognito68b9bc6fVerifyAuthChallengeResponse": {}
+      },
+      "auth": {
+        "cognito68b9bc6f": {}
       }
     }
   }

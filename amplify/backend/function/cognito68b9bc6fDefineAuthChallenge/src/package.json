@@ -1,0 +1,16 @@
+{
+  "name": "LineDefineAuthChallenge",
+  "version": "1.0.0",
+  "description": "DefineAuthChallenge Lambda function for LINE",
+  "main": "index.js",
+  "license": "Apache-2.0",
+  "scripts": {
+    "build": "tsc *.ts"
+  },
+  "devDependencies": {
+    "typescript": "^4.2.3"
+  },
+  "dependencies": {
+    "aws-lambda": "^1.0.6"
+  }
+}
