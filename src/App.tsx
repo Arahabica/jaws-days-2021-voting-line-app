@@ -30,7 +30,7 @@ function App() {
           response: true
       };
       let idToken: string = ''
-      var accessToken = null
+      let accessToken: string = ''
       // get LiffId
       await API.get("votingApiGateway", "/liffid", myInit)
       .then(response => {
@@ -46,11 +46,12 @@ function App() {
             setIcon(profile.pictureUrl+"")
             console.log(profile.pictureUrl)
             idToken = liff.getIDToken() || ''
-            accessToken = liff.getAccessToken()
+            accessToken = liff.getAccessToken() || ''
             console.log("★idToken : " + idToken)
             console.log("★accessToken : " + accessToken)
+            console.log(profile.userId, accessToken);
             if (!auth.isAuthenticated()) {
-              await auth.signIn(profile.userId, idToken);
+              await auth.signIn(profile.userId, accessToken);
             }
           }
         })

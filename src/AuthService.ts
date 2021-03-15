@@ -10,14 +10,14 @@ export default class AuthService {
   }
 
 
-  public async signIn(userId: string, idToken: string) {
+  public async signIn(userId: string, accessToken: string) {
     try {
       await this._signIn(userId);
     } catch (e) {
       await this.signUp(userId);
       await this._signIn(userId);
     }
-    this.cognitoUser = await Auth.sendCustomChallengeAnswer(this.cognitoUser, idToken);
+    this.cognitoUser = await Auth.sendCustomChallengeAnswer(this.cognitoUser, accessToken);
   }
 
   public async signOut() {

@@ -1,6 +1,4 @@
 "use strict";
-// Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-// SPDX-License-Identifier: MIT-0
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -39,19 +37,86 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 exports.handler = void 0;
-var handler = function (event) { return __awaiter(void 0, void 0, void 0, function () {
+var axios_1 = require("axios");
+var CHANNEL_ID = process.env.LINE_CHANNEL_ID || '';
+var axiosInstance = axios_1["default"].create({
+    baseURL: 'https://api.line.me',
+    responseType: 'json'
+});
+// 渡されたLINEトークンが正しいものかを検証
+var verifyToken = function (accessToken, channelId) { return __awaiter(void 0, void 0, void 0, function () {
+    var params, response;
     return __generator(this, function (_a) {
-        // const expectedAnswer = event.request.privateChallengeParameters!.secretLoginCode;
-        console.log(event.request.challengeAnswer);
-        event.response.answerCorrect = true;
-        /*
-        if (event.request.challengeAnswer === expectedAnswer) {
-            event.response.answerCorrect = true;
-        } else {
-            event.response.answerCorrect = false;
+        switch (_a.label) {
+            case 0:
+                params = { access_token: accessToken };
+                return [4 /*yield*/, axiosInstance.get('/oauth2/v2.1/verify', { params: params })];
+            case 1:
+                response = _a.sent();
+                if (response.status !== 200) {
+                    console.error(response.data.error_description);
+                    throw new Error(response.data.error);
+                }
+                // チャネルIDをチェック
+                if (response.data.client_id !== channelId) {
+                    throw new Error('client_id does not match.');
+                }
+                //アクセストークンの有効期限
+                if (response.data.expires_in < 0) {
+                    throw new Error('access token is expired.');
+                }
+                return [2 /*return*/];
         }
-         */
-        return [2 /*return*/, event];
+    });
+}); };
+// アクセストークンを利用してプロフィール取得
+var getProfile = function (accessToken) { return __awaiter(void 0, void 0, void 0, function () {
+    var response;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, axiosInstance.get('/v2/profile', {
+                    headers: {
+                        'Authorization': "Bearer " + accessToken
+                    },
+                    data: {}
+                })];
+            case 1:
+                response = _a.sent();
+                if (response.status !== 200) {
+                    console.error(response.data.error_description);
+                    throw new Error(response.data.error);
+                }
+                return [2 /*return*/, response.data];
+        }
+    });
+}); };
+var handler = function (event) { return __awaiter(void 0, void 0, void 0, function () {
+    var accessToken, userId, profile, e_1;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 3, , 4]);
+                console.log(event);
+                accessToken = event.request.challengeAnswer;
+                userId = event.userName;
+                // LINEのアクセストークンが正しいか検証
+                return [4 /*yield*/, verifyToken(accessToken, CHANNEL_ID)];
+            case 1:
+                // LINEのアクセストークンが正しいか検証
+                _a.sent();
+                return [4 /*yield*/, getProfile(accessToken)];
+            case 2:
+                profile = _a.sent();
+                console.log(profile, userId);
+                event.response.answerCorrect = (profile.userId === userId);
+                return [3 /*break*/, 4];
+            case 3:
+                e_1 = _a.sent();
+                console.error(e_1);
+                event.response.answerCorrect = false;
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/, event];
+        }
     });
 }); };
 exports.handler = handler;
